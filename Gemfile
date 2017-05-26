@@ -21,6 +21,11 @@ gem 'therubyracer'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
+#AUTHENTICATION
+gem 'cancancan'
+gem 'devise'
+gem 'rolify'
+
 #SERVER
 gem 'puma', '~> 3.0'
 
