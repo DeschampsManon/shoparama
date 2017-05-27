@@ -1,0 +1,31 @@
+#main-header {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 12px;
+  .navbar-default{
+    background: transparent;
+    border: 0 solid transparent;
+    .navbar-header {
+      .navbar-toggle {
+        background: transparent;
+        border: 0 solid transparent;
+        font-size: 22px;
+        padding: 9.5px 0;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      .navbar-brand {
+        float: none;
+        &.navbar-center {
+          position: absolute;
+          width: 100%;
+          left: 0;
+          top: 0;
+          text-align: center;
+          margin: auto;
+          height:100%;
+        }
+      }
+    }
+  }
+}

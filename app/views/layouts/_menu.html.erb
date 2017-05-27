@@ -1,0 +1,34 @@
+<header id="main-header">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <%= link_to 'Brand', root_path, class: "navbar-brand navbar-center" %></li>
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="ion ion-navicon"></i>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to users_my_profile_path do %>
+                <%= current_user.first_name %>
+                <%= current_user.last_name %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to 'logout', destroy_user_session_path, method: :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to new_user_registration_path, class: "no-padding-right" do %>
+                <i class='icon ion-person'></i>
+                <%= t 'register' %> / <%= t 'login' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container -->
+  </nav>
+</header>
