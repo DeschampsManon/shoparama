@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Shoparama</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<head>
+  <title> | Shoparama </title>
+  <meta type="description" content="">
+  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600,700,900|Playfair+Display:400,700,900" rel="stylesheet">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+  <%= render 'layouts/menu' %>
+  <%= yield %>
+  <%= render 'layouts/js_locales_info' %>
+</body>
 </html>

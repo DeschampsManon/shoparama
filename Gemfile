@@ -17,9 +17,21 @@ gem 'twitter-bootstrap-rails'
 gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
+gem 'jquery-validation-rails'
 gem 'therubyracer'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
+
+#ICONS
+gem 'ionicons-rails'
+
+#AUTHENTICATION
+gem 'cancancan'
+gem 'devise'
+gem 'rolify'
+
+# GLOBALISATION & I18n
+gem 'i18n-js', '3.0.0.rc2'
 
 #SERVER
 gem 'puma', '~> 3.0'
