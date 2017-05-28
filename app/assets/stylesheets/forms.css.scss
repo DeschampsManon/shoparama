@@ -4,6 +4,11 @@
   h2 {
     display: none;
   }
+  li {
+    padding-bottom: 20px;
+    color: $red;
+    font-size: 12px;
+  }
 }
 
 .main-form {
@@ -137,6 +142,11 @@
         left: calc((100% - 10px) / 2);
       }
     }
+  }
+  .flash-alert {
+    padding-bottom: 20px;
+    color: $red;
+    font-size: 12px;
   }
   ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
     font-style: italic;
