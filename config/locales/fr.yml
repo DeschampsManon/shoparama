@@ -33,3 +33,6 @@ fr:
           attributes:
             email:
               taken: Cet email est déjà utilisé
+  home:
+    index:
+      page_title: online <br> shopping <br> <span class="clear"> made </span> <span class="bold"> easy </span>

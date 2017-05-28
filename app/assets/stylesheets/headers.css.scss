@@ -61,3 +61,20 @@
     }
   }
 }
+
+.home {
+  #page-header {
+    min-height: 82vh;
+    padding: 0 65px;
+    h1 {
+      font-size: 60px;
+      line-height: 62px;
+      color: #000;
+      padding-bottom: 60px;
+      .bold {
+        font-family: Montserrat;
+        font-weight: 700;
+      }
+    }
+  }
+}
