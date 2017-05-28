@@ -2,6 +2,11 @@ body {
   font-family: Montserrat;
 }
 
+.container {
+  width: inherit;
+  max-width: 1330px;
+}
+
 ul,
 ol {
   list-style-type: none;

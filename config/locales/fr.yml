@@ -1,7 +1,9 @@
 fr:
   register: Inscription
   login: Connexion
+  create_account: Créer un compte
   forgot_password: Mot de passe oublié
+  search_placeholder: Recherchez une marque, un produit, un concept ...
   validate_required: Veuillez renseigner ce champ
   validate_minlength: Veuillez entrer plus de {0} caractères
   validate_equalTo: Les mots de passe ne correspondent pas
@@ -13,6 +15,9 @@ fr:
       user:
         not_found_in_database: Vos identifiants sont incorrects
         invalid: Vos identifiants sont incorrects
+    registrations:
+      new:
+        page_title: online shopping <br> <span class="clear"> made </span> easy
   activerecord:
     attributes:
       user:
@@ -20,7 +25,7 @@ fr:
         last_name: Nom
         email: Email
         password: Mot de passe
-        password_confirmation: Confirmation du mot de passe
+        password_confirmation: Confirmation
         remember_me: Se souvenir de moi
     errors:
       models:
