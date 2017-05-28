@@ -46,6 +46,7 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
+  gem 'rails_12factor'
 end
 
 group :development do
@@ -53,10 +54,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
-end
-
-group :production do
-  gem 'rails_12factor'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
