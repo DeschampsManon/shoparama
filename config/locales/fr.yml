@@ -1,6 +1,7 @@
 fr:
   register: Inscription
   login: Connexion
+  create_account: Créer un compte
   forgot_password: Mot de passe oublié
   validate_required: Veuillez renseigner ce champ
   validate_minlength: Veuillez entrer plus de {0} caractères
@@ -20,7 +21,7 @@ fr:
         last_name: Nom
         email: Email
         password: Mot de passe
-        password_confirmation: Confirmation du mot de passe
+        password_confirmation: Confirmation
         remember_me: Se souvenir de moi
     errors:
       models:

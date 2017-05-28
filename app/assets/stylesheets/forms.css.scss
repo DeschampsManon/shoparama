@@ -1,5 +1,47 @@
+@import "variables";
+
 #error_explanation {
   h2 {
     display: none;
+  }
+}
+
+.main-form {
+  label {
+    font-weight: 500;
+    margin: 0;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-right: 0;
+    &.required {
+      &:after {
+        content: "*";
+        color: $red;
+        font-size: 20px;
+        padding-left: 5px;
+        position: absolute;
+      }
+    }
+  }
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    border-radius: 0;
+    border-color: #aeaeae;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      border-color: #888;
+    }
+  }
+  input[type="submit"] {
+    background-color: #515658;
+    border-color: #777;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 2px;
+    font-size: 9.5px;
+    padding: 6px 20px;
   }
 }
