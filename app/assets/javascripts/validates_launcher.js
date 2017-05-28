@@ -31,10 +31,16 @@ $(document).ready(function () {
                 equalTo: "#user_password"
             }
         },
-        errorElement: "span"
+        errorElement: "span",
+        highlight: function(element) {
+            $(element).wrap("<div class='form-error-container'></div>");
+        }
     });
 
     $("#log-user").validate({
-        errorElement: "span"
+        errorElement: "span",
+        highlight: function(element) {
+            $(element).wrap("<div class='form-error-container'></div>");
+        }
     });
 });
