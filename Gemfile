@@ -39,6 +39,8 @@ gem 'puma', '~> 3.0'
 #DATABASE
 gem 'pg', '~> 0.18'
 
+gem 'rails_12factor'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capistrano-rails'
@@ -46,7 +48,6 @@ group :development, :test do
   gem 'pry-nav'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
-  gem 'rails_12factor'
 end
 
 group :development do
@@ -55,6 +56,7 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'web-console', '>= 3.3.0'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
