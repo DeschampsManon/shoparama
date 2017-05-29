@@ -18,6 +18,9 @@ fr:
     registrations:
       new:
         page_title: online shopping <br> <span class="clear"> made </span> easy
+    sessions:
+      new:
+        page_title: online shopping <br> <span class="clear"> made </span> easy
   activerecord:
     attributes:
       user:

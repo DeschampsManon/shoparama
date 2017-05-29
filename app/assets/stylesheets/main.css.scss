@@ -28,6 +28,10 @@ ol {
     height: 180px;
     float:left
   }
+  img {
+    min-width: 100%;
+    height: inherit;
+  }
 }
 
 .content-next-avatar {

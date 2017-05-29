@@ -1,15 +1,9 @@
 <div class="container">
   <header id="page-header" class="profile">
     <section id="user-data">
-      <%= form_for("resource", as: "resource_name", url: "registration_path(resource_name)", html: { method: :put }) do |f| %>
-        <div class="content-flex avatar upload-file">
-          <%= image_tag current_user.avatar(:medium), onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
-          <%= f.label :avatar do %>
-              a
-          <% end %>
-          <%= f.file_field :avatar, class: "hidden" %>
-        </div>
-      <% end %>
+      <div class="content-flex avatar upload-file">
+        <%= image_tag current_user.avatar(:medium), onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+      </div>
       <div class="content-next-avatar">
         <h1>
           <span class="clear"><%= current_user.first_name %></span> <br>
