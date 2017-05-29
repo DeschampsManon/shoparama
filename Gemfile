@@ -25,6 +25,9 @@ gem 'uglifier', '>= 1.3.0'
 #ICONS
 gem 'ionicons-rails'
 
+# IMAGES
+gem 'paperclip'
+
 #AUTHENTICATION
 gem 'cancancan'
 gem 'devise'

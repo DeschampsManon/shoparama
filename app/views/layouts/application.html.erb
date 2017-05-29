@@ -8,7 +8,7 @@
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 </head>
-<body class="<%= controller_name %>">
+<body class="<%= controller_name %> <%= controller.action_name %>">
   <%= render 'layouts/menu' %>
   <%= yield %>
   <%= render 'layouts/js_locales_info' %>

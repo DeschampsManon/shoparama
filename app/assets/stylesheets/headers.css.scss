@@ -1,3 +1,5 @@
+@import "variables";
+
 #main-header {
   text-transform: uppercase;
   font-weight: 600;
@@ -41,7 +43,39 @@
   background-position: center;
   margin-bottom: 30px;
   display: flex;
-  padding: 0 35px;
+  padding: 0 65px;
+  &.profile {
+    background-image: url(profile_header.jpg);
+    #user-data {
+      position: relative;
+      top: 135px;
+      h1 {
+        font-size: 80px;
+        line-height: 80px;
+        padding-bottom: 30px;
+        .last-name {
+          font-family: Montserrat;
+          font-weight: 600;
+          color: #000;
+        }
+      }
+      ul {
+        float: left;
+        padding-right: 25px;
+        padding-top: 2px;
+        li {
+          float: left;
+          color: $ligthgrey;
+          font-size: 16px;
+          font-weight: 300;
+          &:after {
+            content: "|";
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+  }
   > div {
     margin: auto;
   }
@@ -65,7 +99,6 @@
 .home {
   #page-header {
     min-height: 82vh;
-    padding: 0 65px;
     h1 {
       font-size: 60px;
       line-height: 62px;
