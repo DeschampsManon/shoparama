@@ -3,6 +3,8 @@ fr:
   login: Connexion
   create_account: Créer un compte
   forgot_password: Mot de passe oublié
+  leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer
+  required_to_save_change: Obligatoire pour confirmer les changements
   search_placeholder: Recherchez une marque, un produit, un concept ...
   validate_required: Veuillez renseigner ce champ
   validate_minlength: Veuillez entrer plus de {0} caractères
