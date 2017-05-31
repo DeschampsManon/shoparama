@@ -20,8 +20,8 @@
         <%= devise_error_messages! %>
         <div class="row margin-bot-15">
           <div class="col-md-6">
-            <%= f.label :avatar %>
-            <%= f.email_field :email, class: "form-control", autofocus: true %>
+            <%= f.label :email, class: "required" %>
+            <%= f.email_field :email, class: "form-control", required: true, autofocus: true %>
           </div>
           <div class="col-md-6">
             <%= f.label :avatar %>
@@ -30,12 +30,12 @@
         </div>
         <div class="row margin-bot-15">
           <div class="col-md-6">
-            <%= f.label :first_name %><br />
-            <%= f.text_field :first_name, class: "form-control" %>
+            <%= f.label :first_name, class: "required" %><br />
+            <%= f.text_field :first_name, required: true, class: "form-control" %>
           </div>
           <div class="col-md-6">
-            <%= f.label :last_name %><br />
-            <%= f.text_field :last_name, class: "form-control" %>
+            <%= f.label :last_name, class: "required" %><br />
+            <%= f.text_field :last_name, required: true, class: "form-control" %>
           </div>
         </div>
         <div class="row margin-bot-15">
@@ -48,8 +48,8 @@
             <%= f.password_field :password_confirmation, class: "form-control", placeholder: t('leave_blank_if_no_change'), autocomplete: "off" %>
           </div>
           <div class="col-md-4">
-            <%= f.label :current_password %>
-            <%= f.password_field :current_password, class: "form-control", placeholder: t('required_to_save_change'), autocomplete: "off" %>
+            <%= f.label :current_password, class: "required" %>
+            <%= f.password_field :current_password, required: true, class: "form-control", placeholder: t('required_to_save_change'), autocomplete: "off" %>
           </div>
         </div>
         <div class="pull-right">

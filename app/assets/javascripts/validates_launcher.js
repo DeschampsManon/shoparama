@@ -43,4 +43,19 @@ $(document).ready(function () {
             $(element).wrap("<div class='form-error-container'></div>");
         }
     });
+
+    $("#edit_user").validate({
+        rules: {
+            // "user[password]" : {
+            //     minlength: 8
+            // },
+            // "user[password_confirmation]" : {
+            //     equalTo: "#user_password"
+            // }
+        },
+        errorElement: "span",
+        highlight: function(element) {
+            $(element).wrap("<div class='form-error-container'></div>");
+        }
+    });
 });
