@@ -22,11 +22,11 @@ class ApplicationController < ActionController::Base
     end
 
   protected
-    # def authenticate_user!
-    #   if !user_signed_in?
-    #     redirect_to new_user_registration_path
-    #   end
-    # end
+    def user_signed_in
+      if !user_signed_in?
+        redirect_to new_user_registration_path
+      end
+    end
 
     def configure_permitted_parameters
       devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation])

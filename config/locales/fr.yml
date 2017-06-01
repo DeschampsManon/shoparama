@@ -11,10 +11,12 @@ fr:
   validate_minlength: Veuillez entrer plus de {0} caractères
   validate_equalTo: Les mots de passe ne correspondent pas
   validate_email: Veuillez renseigner un email valide
+  form_file_error_format: Veuillez entrer un format d'image valide
   errors:
       format: "%{message}"
   devise:
     failure:
+      unauthenticated: Vous devez vous connecter pour continuer
       user:
         not_found_in_database: Vos identifiants sont incorrects
         invalid: Vos identifiants sont incorrects
@@ -33,6 +35,7 @@ fr:
         password: Mot de passe
         password_confirmation: Confirmation
         remember_me: Se souvenir de moi
+        avatar: Télécharger une photo de profil
     errors:
       models:
         user:
