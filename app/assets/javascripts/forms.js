@@ -6,7 +6,21 @@ function edit_user_live_edit() {
     $("#edit_user input").keyup(function () {
         input_value = $(this).val();
         input_id = $(this).attr("id");
-        console.log(input_id);
         $("#page-header [data-id='"+input_id+"']").html(input_value);
     })
+
+    $("#edit_user .file-upload-container input").change(function () {
+        var $element = $(this)[0];
+        var $element_preview = $("#user-data [data-id='avatar']")
+        var ext = $element.files[0]['name'].substring($element.files[0]['name'].lastIndexOf('.') + 1).toLowerCase();
+        if ($element.files && $element.files[0] && (ext == "gif" || ext == "png" || ext == "jpeg" || ext == "jpg")) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                $element_preview.attr('src', e.target.result);
+            }
+            reader.readAsDataURL($element.files[0]);
+        } else {
+            alert("error")
+        }
+    });
 }

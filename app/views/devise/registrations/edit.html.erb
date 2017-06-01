@@ -2,7 +2,7 @@
   <header id="page-header" class="profile">
     <section id="user-data">
       <div class="content-flex avatar upload-file">
-        <%= image_tag current_user.avatar(:medium), onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+        <%= image_tag current_user.avatar(:medium), data: {id: "avatar"}, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
       </div>
       <div class="content-next-avatar">
         <h1>
@@ -24,8 +24,11 @@
             <%= f.email_field :email, class: "form-control", required: true, autofocus: true %>
           </div>
           <div class="col-md-6">
-            <%= f.label :avatar %>
-            <%= f.file_field :avatar, class: "form-control", autofocus: true %>
+            <div class="file-upload-container">
+              <span><%= t('avatar_label') %></span>
+              <%= f.label :avatar %>
+              <%= f.file_field :avatar, autofocus: true %>
+            </div>
           </div>
         </div>
         <div class="row margin-bot-15">

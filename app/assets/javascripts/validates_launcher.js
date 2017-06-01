@@ -46,12 +46,12 @@ $(document).ready(function () {
 
     $("#edit_user").validate({
         rules: {
-            // "user[password]" : {
-            //     minlength: 8
-            // },
-            // "user[password_confirmation]" : {
-            //     equalTo: "#user_password"
-            // }
+            "user[password]" : {
+                minlength: 8
+            },
+            "user[password_confirmation]" : {
+                equalTo: "#user_password"
+            }
         },
         errorElement: "span",
         highlight: function(element) {
