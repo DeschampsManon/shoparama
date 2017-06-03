@@ -22,7 +22,7 @@ fr:
   datatable_next: page suivante
   form_file_error_format: Veuillez entrer un format d'image valide
   successfully_destroyed: L'élément a bien été supprimé
-  confirm_destroy: Êtes vous sûr de vouloir supprimer cet élément ?
+  confirm_destroy: Êtes vous sûr de vouloir supprimer %{element} ?
   confirm_destroy_title: Êtes vous sûr ?
   confirm_destroy_accept: J'accepte
   confirm_destroy_refuse: Retour

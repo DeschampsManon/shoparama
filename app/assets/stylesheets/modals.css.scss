@@ -1,0 +1,45 @@
+body.modal-open {
+  .container {
+    -webkit-filter: blur(2px);
+    -moz-filter: blur(2px);
+    -o-filter: blur(2px);
+    -ms-filter: blur(2px);
+    filter: blur(2px);
+  }
+}
+
+.modal {
+  &[id^="confirm-modal"] {
+    .modal-content {
+      .modal-header {
+        display: none;
+      }
+      .modal-body {
+        font-weight: 600;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 0;
+      }
+    }
+  }
+  .modal-dialog {
+    padding-top: 20vh;
+    .modal-footer {
+      border-top: 0 solid transparent;
+      button {
+        &:active,
+        &:focus {
+          outline: none;
+          background: transparent;
+          box-shadow: none;
+        }
+        &.btn-default {
+          border: 0 solid transparent;
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+    }
+  }
+}
