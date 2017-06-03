@@ -30,7 +30,7 @@ fr:
   users_list: Liste des utilisateurs
   new_user: Nouvel utilisateur
   contact: Contact
-  action: Actions
+  actions: Actions
   errors:
       format: "%{message}"
   devise:

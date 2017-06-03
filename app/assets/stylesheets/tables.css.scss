@@ -1,5 +1,9 @@
 @import "variables";
 
+.table-responsive {
+  border: 0 solid transparent;
+}
+
 .main-table {
   border-bottom: 2px solid #ececec!important;
   thead {

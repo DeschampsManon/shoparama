@@ -19,7 +19,7 @@
           <th class="no-padding-left no-border-left">&nbsp</th>
           <th><%= t 'contact' %></th>
           <th><%= t 'admin' %></th>
-          <th class="no-sorting" width="165"><%= t 'actions' %></th>
+          <th class="no-sorting" width="170"><%= t 'actions' %></th>
         </thead>
         <tbody>
         <% @users.each do |user| %>
@@ -42,10 +42,12 @@
                 <%= is_admin(user.has_role? :admin) %>
               </td>
               <td>
-                <!-- EDIT -->
-                <%= link_to t('edit'), edit_admin_user_path(user), :class => 'btn btn-primary' %>
-                <!-- DELETE -->
-                <%= link_to t('delete'), admin_user_path(user), method: :delete, data: { confirm: t('confirm_destroy', element: user.first_name+" "+user.last_name) }, :class => 'btn btn-danger' if current_user != user %>
+                <div style="width:170px;">
+                  <!-- EDIT -->
+                  <%= link_to t('edit'), edit_admin_user_path(user), :class => 'btn btn-primary' %>
+                  <!-- DELETE -->
+                  <%= link_to t('delete'), admin_user_path(user), method: :delete, data: { confirm: t('confirm_destroy', element: user.first_name+" "+user.last_name) }, :class => 'btn btn-danger' if current_user != user %>
+                </div>
               </td>
             </tr>
         <% end %>
