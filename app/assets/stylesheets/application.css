@@ -3,5 +3,6 @@
  *= require twitter-bootstrap-static/bootstrap
  *= require twitter-bootstrap-static/sprites
  *= require_tree .
+ *= require dataTables/jquery.dataTables
  *= require_self
 */

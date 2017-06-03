@@ -5,6 +5,9 @@ body {
 .container {
   width: inherit;
   max-width: 1330px;
+  > section {
+    padding: 20px 0 40px 0;
+  }
 }
 
 ul,
@@ -26,7 +29,12 @@ ol {
     border-radius: 50%;
     width: 180px;
     height: 180px;
-    float:left
+    float:left;
+  }
+  &.avatar-table {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
   }
   img {
     min-width: 100%;

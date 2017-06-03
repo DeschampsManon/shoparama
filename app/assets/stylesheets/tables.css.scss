@@ -1,0 +1,136 @@
+@import "variables";
+
+.main-table {
+  border-bottom: 2px solid #ececec!important;
+  thead {
+    th {
+      border-top: 1px solid #ececec;
+      border-bottom: 1px solid #ececec!important;
+      padding-top: 20px!important;
+      padding-bottom: 20px!important;
+      font-size: 14px;
+      &.no-sorting {
+        background-image: none!important;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  tbody {
+    td {
+      border-top: 1px solid #ececec;
+      font-size: 13px;
+    }
+  }
+}
+
+.dataTables_wrapper {
+  .dataTables_length {
+    label {
+      font-weight: 500;
+      select {
+        border: 1px solid #afafaf;
+        background: transparent;
+        height: 31px;
+        margin: 0 8px;
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .dataTables_filter {
+    label {
+      position: relative;
+      width: 250px;
+      margin-bottom: 20px;
+      &:after {
+        content: "\f2f5";
+        font-family: Ionicons;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: $darkgrey;
+        height: 100%;
+        width: 30px;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+        padding: 3px 0;
+      }
+      .label {
+        position:absolute;
+        left: 12px;
+        top: 0;
+        height: 100%;
+        font-size: 13px;
+        font-weight: 300;
+        color: $ligthgrey;
+        padding: 8px 0;
+      }
+      input[type="search"] {
+        width: 100%;
+        height: 30px;
+        border: 1px solid $darkgrey;
+        margin: 0;
+      }
+    }
+  }
+  .dataTables_info {
+    padding-top: 25px!important;
+    color: $ligthgrey!important;
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .dataTables_paginate {
+    padding-top: 20px!important;
+    span {
+      .paginate_button {
+        border: 1px solid #333 !important;
+        border-radius: 4px;
+        padding: 10px 0!important;
+        width: 28px;
+        font-size: 12px;
+        line-height: 0.5;
+        margin-right: 8px;
+        &.current {
+          background: #333 !important;
+          color: #fff !important;
+          &:hover {
+            background: #3d4142 !important;
+            color: #fff !important;
+          }
+        }
+      }
+    }
+    .paginate_button {
+      &.next,
+      &.previous {
+        color: $black!important;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 12px;
+        margin: 0!important;
+        border: 0 solid transparent!important;
+        &:focus,
+        &:active{
+          outline: none;
+          background: transparent;
+          box-shadow: none;
+        }
+        &:hover {
+          background: transparent!important;
+          color: #333!important;
+          opacity: .7;
+        }
+        &.disabled {
+          display: none;
+        }
+      }
+      &.next {
+        padding-right: 0;
+      }
+    }
+  }
+}

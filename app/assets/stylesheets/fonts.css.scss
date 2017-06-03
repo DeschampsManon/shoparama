@@ -1,0 +1,25 @@
+@import "variables";
+
+.capitalize-text {
+  text-transform: capitalize;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.bold-text {
+  font-weight: 600;
+}
+
+.black-text {
+  color: $black;
+}
+
+.red-text {
+  color: $red;
+}
+
+.green-text {
+  color: $green;
+}

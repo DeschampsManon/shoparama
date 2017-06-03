@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :user_signed_in
+  before_action :logged_in?
 
   def my_profile
     @user = current_user

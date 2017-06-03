@@ -1,14 +1,17 @@
 @import "variables";
 
 .btn {
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-size: 9.5px;
+  padding: 6px 20px;
   &.btn-primary {
-    cursor: pointer;
     background-color: $darkgrey;
     border-color: #777;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 2px;
-    font-size: 9.5px;
-    padding: 6px 20px;
+    &:hover {
+      background-color: #3d4142;
+    }
   }
 }

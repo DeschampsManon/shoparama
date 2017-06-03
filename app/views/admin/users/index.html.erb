@@ -1,0 +1,63 @@
+<div class="container">
+  <header id="page-header" class="administration">
+    <div class="col-md-12">
+      <h1><%= t('administration') %></h1>
+    </div>
+  </header>
+  <section>
+    <% if flash[:alert] %>
+        <div class="container">
+          <p class="alert alert-danger">
+            <%= flash[:alert] %>
+          </p>
+        </div>
+    <% end %>
+    <% if flash[:notice] %>
+        <div class="container">
+          <p class="alert alert-success">
+            <%= flash[:notice] %>
+          </p>
+        </div>
+    <% end %>
+    <div class="table-responsive">
+      <table class="main-table datatable">
+        <thead>
+          <th class="no-sorting no-padding-right" width="80"><%= t 'users' %></th>
+          <th class="no-padding-left no-border-left">&nbsp</th>
+          <th><%= t 'contact' %></th>
+          <th><%= t 'admin' %></th>
+          <th class="no-sorting" width="165"><%= t 'actions' %></th>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+            <tr>
+              <td class="no-padding-right no-border-right">
+                <div class="content-flex avatar-table">
+                  <%= image_tag user.avatar(:thumb), onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+                </div>
+              </td>
+              <td class="no-padding-left capitalize-text bold-text">
+                <%= user.first_name %>
+                <%= user.last_name %>
+              </td>
+              <td>
+                <a href="mailto:<%= user.email %>" class="black-text">
+                  <%= user.email %>
+                </a>
+              </td>
+              <td class="center-text" style="font-size:22px;">
+                <%= is_admin(user.has_role? :admin) %>
+              </td>
+              <td>
+                <!-- EDIT -->
+                <%= link_to t('edit'), edit_admin_user_path(user), :class => 'btn btn-primary' %>
+                <!-- DELETE -->
+                <%= link_to t('delete'), admin_user_path(user), method: :delete, data: { confirm: t('confirm_destroy') }, :class => 'btn btn-danger' if current_user != user %>
+              </td>
+            </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

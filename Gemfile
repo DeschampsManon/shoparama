@@ -10,11 +10,13 @@ end
 gem 'rails', '~> 5.0.2'
 
 #CSS
+gem 'data-confirm-modal'
 gem 'sass-rails', '~> 5.0'
 gem 'twitter-bootstrap-rails'
 
 #JS
 gem 'coffee-rails', '~> 4.2'
+gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-validation-rails'

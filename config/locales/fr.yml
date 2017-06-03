@@ -3,6 +3,8 @@ fr:
   login: Connexion
   create_account: Créer un compte
   forgot_password: Mot de passe oublié
+  admin: Admin
+  manage_users: Gestion des utilisateurs
   leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer
   required_to_save_change: Obligatoire pour confirmer les changements
   avatar_label: Avatar
@@ -11,7 +13,22 @@ fr:
   validate_minlength: Veuillez entrer plus de {0} caractères
   validate_equalTo: Les mots de passe ne correspondent pas
   validate_email: Veuillez renseigner un email valide
+  datatable_info: Affichage des éléments _START_ à _END_ sur _TOTAL_
+  datatable_lengthMenu: Afficher _MENU_ éléments
+  datatable_infoEmpty: Affichage de l'élément 0 à 0 sur 0 éléments
+  datatable_zeroRecords: Aucun élément à afficher
+  datatable_search: Rechercher ...
+  datatable_previous: page précédente
+  datatable_next: page suivante
   form_file_error_format: Veuillez entrer un format d'image valide
+  successfully_destroyed: L'élément a bien été supprimé
+  confirm_destroy: Êtes vous sûr de vouloir supprimer cet élément ?
+  confirm_destroy_title: Êtes vous sûr ?
+  confirm_destroy_accept: J'accepte
+  confirm_destroy_refuse: Retour
+  users: Utilisateurs
+  contact: Contact
+  action: Actions
   errors:
       format: "%{message}"
   devise:

@@ -9,6 +9,46 @@
     border: 0 solid transparent;
     margin: 0;
     padding: 20px 0;
+    .nav {
+      a {
+        &.dropdown-toggle {
+          &:after {
+            content: "\f123";
+            font-family: Ionicons;
+            margin-left: 5px;
+          }
+        }
+      }
+      .dropdown {
+        &.open {
+          a {
+            background-color: transparent;
+          }
+        }
+        .dropdown-menu {
+          border-radius: 0;
+          li {
+            a {
+              padding: 3px 20px!important;
+              text-transform: capitalize;
+              &:hover {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+      }
+      &.navbar-right {
+        li:last-child > a {
+          padding-right: 0;
+        }
+      }
+      &.navbar-left {
+        li:first-child > a {
+          padding-left: 0;
+        }
+      }
+    }
     .navbar-header {
       .navbar-toggle {
         background: transparent;
@@ -27,7 +67,6 @@
           top: 20px;
           text-align: center;
           margin: auto;
-          height:100%;
         }
       }
     }
@@ -75,6 +114,12 @@
           }
         }
       }
+    }
+  }
+  &.administration {
+    min-height: 100px;
+    h1 {
+      font-size: 20px;
     }
   }
   > div {

@@ -22,9 +22,15 @@ class ApplicationController < ActionController::Base
     end
 
   protected
-    def user_signed_in
+    def logged_in?
       if !user_signed_in?
         redirect_to new_user_registration_path
+      end
+    end
+
+    def authorized?
+      if !current_user.has_role? :admin
+        redirect_to(root_url)
       end
     end
 

@@ -20,7 +20,7 @@ function validate_params() {
     });
 }
 
-$(document).ready(function () {
+$(document).on('ready', function () {
     validate_params();
     $("#new_user").validate({
         rules: {
