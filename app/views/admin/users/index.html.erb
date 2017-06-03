@@ -5,20 +5,13 @@
     </div>
   </header>
   <section>
-    <% if flash[:alert] %>
-        <div class="container">
-          <p class="alert alert-danger">
-            <%= flash[:alert] %>
-          </p>
-        </div>
-    <% end %>
-    <% if flash[:notice] %>
-        <div class="container">
-          <p class="alert alert-success">
-            <%= flash[:notice] %>
-          </p>
-        </div>
-    <% end %>
+    <h2><%= t('users_list') %></h2>
+    <header id="page-sub-header">
+      <%= render 'shared/flash_alert' %>
+      <aside class="pull-right">
+        <%= link_to t('new_user'), new_admin_user_path, class: 'btn btn-lg btn-user' %>
+      </aside>
+    </header>
     <div class="table-responsive">
       <table class="main-table datatable">
         <thead>

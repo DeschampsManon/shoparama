@@ -142,6 +142,51 @@
   }
 }
 
+#page-sub-header {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 20px;
+  .alert-container {
+    width: -webkit-calc(100% - 225px);
+    width: -moz-calc(100% - 225px);
+    width: calc(100% - 225px);
+    .alert {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      font-size: 13px;
+    }
+  }
+  aside {
+    .btn {
+      width: 100%;
+      color: $darkgrey;
+      border: 1px solid $darkgrey;
+      padding-right: 46px;
+      padding-top: 8px;
+      position: relative;
+      &:after {
+        font-family: Ionicons;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: $darkgrey;
+        color: #fff;
+        height: 100%;
+        width: 26px;
+        font-size: 13px;
+        padding: 3px 0;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      &.btn-user {
+        &:after {
+          content: "\f211";
+        }
+      }
+    }
+  }
+}
+
 .home {
   #page-header {
     min-height: 82vh;

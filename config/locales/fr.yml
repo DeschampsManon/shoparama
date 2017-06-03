@@ -27,6 +27,8 @@ fr:
   confirm_destroy_accept: J'accepte
   confirm_destroy_refuse: Retour
   users: Utilisateurs
+  users_list: Liste des utilisateurs
+  new_user: Nouvel utilisateur
   contact: Contact
   action: Actions
   errors:
