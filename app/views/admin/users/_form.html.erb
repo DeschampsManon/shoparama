@@ -51,7 +51,7 @@
             <div class="col-md-2">
               <span><%= t('avatar_label') %></span>
             </div>
-            <div class="col-md-10 margin-bot-15">
+            <div class="col-md-10">
               <%= f.label :avatar %>
               <%= f.file_field :avatar, autofocus: true %>
             </div>
@@ -80,7 +80,7 @@
         <div class="row">
           <%= f.label :role, class: "col-md-3" %>
           <div class="col-md-9">
-            <%= f.select :roles, options_from_collection_for_select(Role.all.where.not( name: ""), :name, :translated_name), {include_blank: t('prompt_default')}, class: "select2" %>
+            <%= f.select :roles, options_from_collection_for_select(Role.all.where.not( name: ""), :name, :translated_name), {include_blank: t('prompt_default')}, class: "form-control select2" %>
           </div>
         </div>
       </div>
