@@ -1,15 +1,16 @@
 $(document).on('ready', function () {
     edit_user_live_edit();
+    $( ".select2" ).select2();
 })
 
 function edit_user_live_edit() {
-    $("#edit_user input").keyup(function () {
+    $(".live-edit-form input").keyup(function () {
         input_value = $(this).val();
         input_id = $(this).attr("id");
         $("#page-header [data-id='"+input_id+"']").html(input_value);
     })
 
-    $("#edit_user .file-upload-container input").change(function () {
+    $(".live-edit-form .file-upload-container input").change(function () {
         var $element = $(this)[0];
         var $element_label = $(this).parent().find("label")
         var $element_preview = $("#user-data [data-id='avatar']");

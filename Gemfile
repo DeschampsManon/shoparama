@@ -12,6 +12,7 @@ gem 'rails', '~> 5.0.2'
 #CSS
 gem 'data-confirm-modal'
 gem 'sass-rails', '~> 5.0'
+gem 'select2-rails'
 gem 'twitter-bootstrap-rails'
 
 #JS

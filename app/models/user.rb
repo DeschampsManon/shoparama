@@ -18,5 +18,4 @@ class User < ApplicationRecord
   def self.current_user=(user)
     Thread.current[:user] = user
   end
-
 end

@@ -1,0 +1,92 @@
+<header id="page-header" class="profile">
+  <section id="user-data">
+    <div class="content-flex avatar upload-file">
+      <%= image_tag @user.avatar(:medium), data: {id: "avatar"}, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+    </div>
+    <div class="content-next-avatar">
+      <h1>
+        <span class="clear" data-id="user_first_name">
+          <% if @user.first_name.present? %>
+            <%= @user.first_name %>
+          <% else %>
+            <%= t('activerecord.attributes.user.first_name') %>
+          <% end %>
+        </span> <br>
+        <span class="last-name" data-id="user_last_name">
+          <% if @user.last_name.present? %>
+            <%= @user.last_name %>
+          <% else %>
+            <%= t('activerecord.attributes.user.last_name') %>
+          <% end %>
+        </span>
+      </h1>
+      <ul>
+        <li data-id="user_email">
+          <% if @user.email.present? %>
+              <%= @user.email %>
+          <% else %>
+              <%= t('activerecord.attributes.user.email') %>
+          <% end %>
+        </li>
+      </ul>
+    </div>
+  </section>
+</header>
+<section class="clearfix">
+  <%= form_for(@user, url: {action: @user.new_record? ? "create" : "update"}, html: { class: "main-form live-edit-form clearfix validate-simple", id: "user-form" }) do |f| %>
+    <h2><%= t 'new_user' %></h2>
+    <%= render 'shared/error_messages', target: @user %>
+    <div class="row">
+      <div class="col-md-6 margin-bot-15">
+        <div class="row">
+          <%= f.label :email, class: "required col-md-2" %>
+          <div class="col-md-10">
+            <%= f.email_field :email, class: "form-control", required: true, autofocus: true %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 margin-bot-15">
+        <div class="row">
+          <div class="file-upload-container">
+            <div class="col-md-2">
+              <span><%= t('avatar_label') %></span>
+            </div>
+            <div class="col-md-10 margin-bot-15">
+              <%= f.label :avatar %>
+              <%= f.file_field :avatar, autofocus: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row margin-bot-15">
+      <div class="col-md-4 margin-bot-15">
+        <div class="row">
+          <%= f.label :first_name, class: "required col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :first_name, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 margin-bot-15">
+        <div class="row">
+          <%= f.label :last_name, class: "required col-md-3" %>
+          <div class="col-md-9">
+            <%= f.text_field :last_name, class: "form-control", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 margin-bot-15">
+        <div class="row">
+          <%= f.label :role, class: "col-md-3" %>
+          <div class="col-md-9">
+            <%= f.select :roles, options_from_collection_for_select(Role.all.where.not( name: ""), :name, :translated_name), {include_blank: t('prompt_default')}, class: "select2" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>

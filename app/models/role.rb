@@ -10,4 +10,10 @@ class Role < ApplicationRecord
             :allow_nil => true
 
   scopify
+
+  def translated_name
+    if (name.present?)
+      I18n.t(name, scope: 'role')
+    end
+  end
 end

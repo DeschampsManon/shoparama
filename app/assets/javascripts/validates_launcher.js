@@ -1,4 +1,5 @@
 function validate_params() {
+
     $.extend($.validator.messages, {
         required: I18n.translate('validate_required'),
         maxlength: I18n.translate('validate_maxlength'),
@@ -18,44 +19,28 @@ function validate_params() {
         max: jQuery.validator.format("Please enter a value less than or equal to {0}."),
         min: jQuery.validator.format("Please enter a value greater than or equal to {0}.")
     });
+
+    $.validator.setDefaults({
+        errorElement: "span",
+        highlight: function(element) {
+            $(element).wrap("<div class='form-error-container'></div>");
+        }
+    });
+
+    $(".validate-password-form").validate({
+        rules: {
+            "user[password]" : {
+                minlength: 8
+            },
+            "user[password_confirmation]" : {
+                equalTo: "#user_password"
+            }
+        },
+    });
+
+    $(".validate-simple").validate();
 }
 
 $(document).on('ready', function () {
     validate_params();
-    $("#new_user").validate({
-        rules: {
-            "user[password]" : {
-                minlength: 8
-            },
-            "user[password_confirmation]" : {
-                equalTo: "#user_password"
-            }
-        },
-        errorElement: "span",
-        highlight: function(element) {
-            $(element).wrap("<div class='form-error-container'></div>");
-        }
-    });
-
-    $("#log-user").validate({
-        errorElement: "span",
-        highlight: function(element) {
-            $(element).wrap("<div class='form-error-container'></div>");
-        }
-    });
-
-    $("#edit_user").validate({
-        rules: {
-            "user[password]" : {
-                minlength: 8
-            },
-            "user[password_confirmation]" : {
-                equalTo: "#user_password"
-            }
-        },
-        errorElement: "span",
-        highlight: function(element) {
-            $(element).wrap("<div class='form-error-container'></div>");
-        }
-    });
 });

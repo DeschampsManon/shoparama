@@ -7,4 +7,6 @@
 //= require i18n/translations
 //= require jquery.validate
 //= require data-confirm-modal
+//= require select2
+//= require select2_locale_fr
 //= require_tree .

@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
       @user.add_role params[:user][:roles]
       if @user.save
         UserMailer.welcome(@user, generated_password).deliver
-        format.html { redirect_to admin_users_url, notice: t('.successfully_created') }
+        format.html { redirect_to admin_users_url, notice: t('successfully_created') }
       else
         format.html { render :new }
       end
@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
       @user.roles = []
       @user.add_role params[:user][:roles]
       if @user.update(user_params)
-        format.html { redirect_to admin_users_url, notice: t('.successfully_updated') }
+        format.html { redirect_to admin_users_url, notice: t('successfully_updated') }
       else
         format.html { render :edit }
       end
