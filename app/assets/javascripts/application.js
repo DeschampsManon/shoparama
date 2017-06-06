@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
-//= require turbolinks
 //= require twitter/bootstrap
 //= require i18n
 //= require i18n/translations

@@ -1,11 +1,11 @@
 <% if target.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% target.errors.messages.values.each do |message| %>
-          <% message.each do  |msg| %>
-              <li><%= msg %></li>
-          <%end %>
-      <% end %>
-    </ul>
-  </div>
+    <div id="error_explanation">
+      <ul>
+        <% target.errors.messages.values.each do |message| %>
+            <% message.each do  |msg| %>
+                <li><%= msg %></li>
+            <%end %>
+        <% end %>
+      </ul>
+    </div>
 <% end %>

@@ -22,7 +22,6 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
 gem 'therubyracer'
-gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 
 #ICONS
@@ -35,6 +34,11 @@ gem 'paperclip'
 gem 'cancancan'
 gem 'devise'
 gem 'rolify'
+
+#SCRAPING
+
+# IMPORT/EXPORTS : CSV | XLS | XLSX | PDF
+gem 'nokogiri'
 
 # GLOBALISATION & I18n
 gem 'i18n-js', '3.0.0.rc2'
