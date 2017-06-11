@@ -4,5 +4,6 @@ class CreateProducts < ActiveRecord::Migration[5.0]
       t.string :reference
       t.timestamps
     end
+    add_reference :products, :brand, foreign_key: true
   end
 end

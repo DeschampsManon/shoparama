@@ -1,0 +1,34 @@
+<div class="container">
+  <aside id="filters">
+    <%= form_tag "", method: 'get', class: "main-form" do %>
+      <div>
+        <h3> <%= t 'categories' %></h3>
+        <% @products.each do |product| %>
+          <% product.product.categories.each do |category| %>
+            <%= check_box_tag category.name %>
+            <%= label_tag category.name %> <br>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+  </aside>
+  <section class="clearfix right-container">
+    <% if @products.count > 0 %>
+      <div class="raw">
+        <% @products.each do |product| %>
+          <article class="col-md-3">
+            <%= link_to product.url do %>
+              <div class="content-flex">
+                <% if product.thumbnail %>
+                  <%= image_tag product.thumbnail, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+                <% end %>
+              </div>
+              <%= product.name.truncate(30) %>
+              <%= product.price %>
+            <% end %>
+          </article>
+        <% end %>
+      </div>
+    <% end %>
+  </section>
+</div>

@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
-  has_many :product_sellers
   has_many :categories , :through => :categorizations
   has_many :categorizations
-  belongs_to :brand
+  has_many :product_sellers
+  belongs_to :brand, optional: true
 end

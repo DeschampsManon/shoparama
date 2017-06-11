@@ -9,6 +9,9 @@ end
 # GLOBAL RUBY RAILS
 gem 'rails', '~> 5.0.2'
 
+# APPLICATION
+gem 'figaro'
+
 #CSS
 gem 'data-confirm-modal'
 gem 'sass-rails', '~> 5.0'
@@ -29,6 +32,9 @@ gem 'ionicons-rails'
 
 # IMAGES
 gem 'paperclip'
+
+# AMAZON
+gem 'vacuum'
 
 #AUTHENTICATION
 gem 'cancancan'

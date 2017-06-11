@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170604155619) do
+ActiveRecord::Schema.define(version: 20170611060222) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,14 +25,13 @@ ActiveRecord::Schema.define(version: 20170604155619) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "parent_id"
   end
 
   create_table "categorizations", force: :cascade do |t|
-    t.integer  "categorie_id"
+    t.integer  "category_id"
     t.integer  "product_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "homes", force: :cascade do |t|
@@ -64,9 +63,10 @@ ActiveRecord::Schema.define(version: 20170604155619) do
     t.string   "url"
     t.string   "price"
     t.string   "name"
+    t.string   "thumbnail"
+    t.integer  "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "product_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20170604155619) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "brand_id"
+    t.index ["brand_id"], name: "index_products_on_brand_id", using: :btree
   end
 
   create_table "roles", force: :cascade do |t|
@@ -115,4 +116,5 @@ ActiveRecord::Schema.define(version: 20170604155619) do
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
   end
 
+  add_foreign_key "products", "brands"
 end
