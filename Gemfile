@@ -35,6 +35,7 @@ gem 'paperclip'
 
 # AMAZON
 gem 'vacuum'
+gem 'rebay'
 
 #AUTHENTICATION
 gem 'cancancan'

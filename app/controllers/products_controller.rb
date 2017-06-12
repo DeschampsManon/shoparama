@@ -20,14 +20,14 @@ class ProductsController < ApplicationController
     if params[:search].present?
       # CONNECT TO AMAZON API
       request ||= Vacuum.new('FR')
-
       request.configure(
         aws_access_key_id: ENV['aws_access_key_id'],
         aws_secret_access_key: ENV['aws_secret_access_key'],
         associate_tag: ENV['associate_tag']
       )
 
-      response = request.item_search(
+      # SEARCH AMAZON PRODUCTS WITH KEYWORD
+      amazon_response = request.item_search(
         query: {
           'SearchIndex'   => 'All',
           'Keywords'      =>  params[:search],
@@ -35,7 +35,7 @@ class ProductsController < ApplicationController
         }
       )
 
-      hashed_products = response.to_h
+      hashed_products = amazon_response.to_h
 
       # INITIALIZE ARRAY
       @amazon_products = []
@@ -51,6 +51,13 @@ class ProductsController < ApplicationController
         product.image_url = item['LargeImage']['URL'] if item['LargeImage']
         product.dimensions = item['ItemAttributes']['ItemDimensions']
 
+        # CONNECT TO EBAY API -> (initializers/rebay.rb)
+        finder = Rebay::Finding.new
+
+        # SEARCH EBAY PRODUCTS WITH KEYWORD
+        ebay_response = finder.get_search_keywords_recommendation({:keywords => params[:search]})
+
+        #binding.pry
         # CREATE CATEGORY IF NOT EXIST
         @category = Category.find_or_initialize_by(name: product.category)
 
