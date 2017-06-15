@@ -13,6 +13,7 @@ gem 'rails', '~> 5.0.2'
 gem 'figaro'
 
 #CSS
+gem 'bootstrap-will_paginate'
 gem 'data-confirm-modal'
 gem 'sass-rails', '~> 5.0'
 gem 'select2-rails'

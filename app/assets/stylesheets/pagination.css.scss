@@ -1,0 +1,36 @@
+.pagination {
+  a,
+  em {
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 10px 0;
+    width: 28px;
+    font-size: 12px;
+    line-height: 0.5;
+    margin-right: 8px;
+    display: inline-block;
+    text-align: center;
+    color: #333;
+    cursor: pointer;
+    &.current,
+    &:hover {
+      background: #333;
+      color: #fff;
+      font-style: normal;
+    }
+  }
+  .previous_page,
+  .next_page {
+    width: initial;
+    border: 0 solid transparent;
+    text-transform: uppercase;
+    font-weight: 700;
+    &:hover {
+      background: transparent;
+      color: #333;
+    }
+    &.disabled {
+      display: none;
+    }
+  }
+}

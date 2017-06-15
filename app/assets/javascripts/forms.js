@@ -1,6 +1,7 @@
 $(document).on('ready', function () {
     edit_user_live_edit();
     $( ".select2" ).select2();
+    $(".filter-by-category").change(product_categories_filter);
 })
 
 function edit_user_live_edit() {
@@ -28,4 +29,8 @@ function edit_user_live_edit() {
             $element_label.addClass("error")
         }
     });
+}
+
+function product_categories_filter() {
+    $("#product-filter").submit();
 }
