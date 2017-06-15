@@ -32,7 +32,8 @@ class ProductsController < ApplicationController
   def create
     if params[:search].present?
         @index_search = 0
-        create_from_amazon(params).each do |api_product|
+        all_products = create_from_amazon(params) + create_from_ebay(params)
+        all_products.each do |api_product|
           create_final_product(api_product)
         end
       end

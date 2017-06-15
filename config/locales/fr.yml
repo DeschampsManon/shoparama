@@ -35,6 +35,8 @@ fr:
   contact: Contact
   actions: Actions
   prompt_default: -- selectionner --
+  will_paginate:
+    page_gap: ...
   errors:
       format: "%{message}"
   devise:
