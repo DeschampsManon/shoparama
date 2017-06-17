@@ -34,6 +34,7 @@ fr:
   confirm_destroy_refuse: Retour
   users: Utilisateurs
   users_list: Liste des utilisateurs
+  categories_list: Liste des catégories
   new_user: Nouvel utilisateur
   my_profile: Mon profil
   contact: Contact
