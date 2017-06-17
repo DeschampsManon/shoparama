@@ -8,4 +8,16 @@ module ApplicationHelper
     end
     return raw "<span class='hidden'>#{admin}</span><i class='ion ion-#{icon_class} #{icon_color}'></i>"
   end
+
+  def is_favorite(product=nil)
+    icon_class = "ion-ios-heart"
+    type = "favorite"
+    product.favorited_by.each do |user|
+      if user == current_user
+        icon_class = "ion-heart-broken"
+        type = "unfavorite"
+      end
+    end
+    return link_to raw("<i class='ion #{icon_class}'></i>"), favorite_product_path(product, type: type), class: "red-text red-border", method: :put
+  end
 end

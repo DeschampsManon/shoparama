@@ -8,6 +8,7 @@ fr:
   leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer
   required_to_save_change: Obligatoire pour confirmer les changements
   avatar_label: Avatar
+  need_to_be_logged: Vous devez vous connecter pour continuer
   search_placeholder: Recherchez une marque, un produit, un concept ...
   validate_required: Veuillez renseigner ce champ
   validate_minlength: Veuillez entrer plus de {0} caractères
@@ -35,6 +36,8 @@ fr:
   contact: Contact
   actions: Actions
   prompt_default: -- selectionner --
+  favorited: "%{product} a été ajouté à vos favoris"
+  unfavorited: "%{product} ne fait plus partis de vos favoris"
   will_paginate:
     page_gap: ...
   errors:

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-
+  before_action :authenticate_user!, only: [:favorite]
   def index
     if params[:search]
       product_ids = []
@@ -31,15 +31,14 @@ class ProductsController < ApplicationController
 
   def create
     if params[:search].present?
-        @index_search = 0
-        all_products = create_from_amazon(params) + create_from_ebay(params)
-        all_products.each do |api_product|
-          create_final_product(api_product)
-        end
+      @index_search = 0
+      all_products = create_from_amazon(params) + create_from_ebay(params)
+      all_products.each do |api_product|
+        create_final_product(api_product)
       end
-      # LOAD PRODUCT INDEX PAGE WITH PARAMS SEARCH
-      redirect_to action: 'index', search: params[:search]
     end
+    # LOAD PRODUCT INDEX PAGE WITH PARAMS SEARCH
+    redirect_to action: 'index', search: params[:search]
   end
 
   def create_final_product(api_product)
@@ -86,7 +85,7 @@ class ProductsController < ApplicationController
       product.push hash_local
       @index_search += 1
     end
-      return product
+    return product
   end
 
   def create_from_amazon(params)
@@ -124,6 +123,18 @@ class ProductsController < ApplicationController
       product.push hash_local
       @index_search += 1
     end
-      return product
+    return product
+  end
 
+  def favorite
+    type = params[:type]
+    product = ProductSeller.where(id: params[:id]).first
+    if type == "favorite"
+      current_user.favorites << product
+      redirect_to :back, notice: t('favorited', product: product.name.truncate(40))
+    elsif type == "unfavorite"
+      current_user.favorites.delete(product)
+      redirect_to :back, notice: t('unfavorited', product: product.name.truncate(40))
+    end
+  end
 end

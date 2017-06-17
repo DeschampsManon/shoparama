@@ -7,7 +7,9 @@
   <section>
     <h2><%= t('users_list') %></h2>
     <header id="page-sub-header">
-      <%= render 'shared/flash_alert' %>
+      <div class="pull-left alert-container">
+        <%= render 'shared/flash_alert' %>
+      </div>
       <aside class="pull-right">
         <%= link_to t('new_user'), new_admin_user_path, class: 'btn btn-lg btn-user' %>
       </aside>

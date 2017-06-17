@@ -24,6 +24,11 @@
     <% end %>
   </aside>
   <section class="clearfix right-container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'shared/flash_alert' %>
+      </div>
+    </div>
     <% if @product_sellers.count > 0 %>
       <div id="products-list">
         <%= render 'products_list' %>
@@ -31,4 +36,3 @@
     <% end %>
   </section>
 </div>
-

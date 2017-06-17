@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   end
 
   get 'product/create_product' => 'products#create'
-  resources :products
+  resources :products do
+    member do
+      put 'favorite'
+    end
+  end
 
 end

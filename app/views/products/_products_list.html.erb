@@ -1,26 +1,8 @@
 <div class="row">
   <% @product_sellers.each do |product| %>
-      <article class="col-md-3">
-        <div class="product-card">
-          <div class="content-flex product-thumbnail">
-            <% if product.thumbnail %>
-                <%= image_tag product.thumbnail, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
-            <% else %>
-                <%= image_tag image_url('no_image.png'), style: "width:100%;height:100%;" %>
-            <% end %>
-            <div class="product-actions">
-              <%= link_to product.url, class: "red-text red-border" do %>
-                  <i class="ion ion-ios-heart"></i>
-              <% end %>
-              <%= link_to product.url, target: "_blank", class: "green-text green-border" do %>
-                  <i class="ion ion-ios-search-strong"></i>
-              <% end %>
-            </div>
-          </div>
-          <h2><%= product.name.truncate(30) %></h2>
-          <span class="product-price"><%= product.price %></span>
-        </div>
-      </article>
+    <article class="col-md-3">
+      <%= render partial: 'product', locals: {product: product} %>
+    </article>
   <% end %>
 </div>
 <div class="row">

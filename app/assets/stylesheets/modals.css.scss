@@ -14,16 +14,16 @@ body.modal-open {
       .modal-header {
         display: none;
       }
-      .modal-body {
-        font-weight: 600;
-        font-size: 15px;
-        margin-top: 20px;
-        margin-bottom: 0;
-      }
     }
   }
   .modal-dialog {
     padding-top: 20vh;
+    .modal-body {
+      font-weight: 600;
+      font-size: 15px;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
     .modal-footer {
       border-top: 0 solid transparent;
       button {
