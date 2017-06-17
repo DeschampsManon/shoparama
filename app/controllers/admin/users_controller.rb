@@ -31,7 +31,7 @@ class Admin::UsersController < ApplicationController
       @user.roles = []
       @user.add_role params[:user][:roles]
       if @user.update(user_params)
-        format.html { redirect_to admin_users_url, notice: t('successfully_updated') }
+        format.html { redirect_to admin_users_path, notice: t('successfully_updated') }
       else
         format.html { render :edit }
       end

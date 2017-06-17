@@ -10,24 +10,36 @@ class Admin::CategoriesController < ApplicationController
   def new
   end
 
+  def edit
+  end
+
   def create
   end
 
   def update
     respond_to do |format|
+      if @category.update(category_params)
+        format.html { redirect_to admin_categories_path, notice: t('successfully_updated') }
+      else
+        format.html { render :edit }
+      end
     end
   end
 
   def destroy
-
+    respond_to do |format|
+      if @category.destroy
+        format.html { redirect_to admin_categories_path, notice: t('successfully_destroyed') }
+      end
+    end
   end
 
   private
     def set_admin_category
-      @category = User.find(params[:id])
+      @category = Category.find(params[:id])
     end
 
-    def user_params
+    def category_params
       params.require(:category).permit(
         :name
       )

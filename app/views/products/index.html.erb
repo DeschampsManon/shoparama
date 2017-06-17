@@ -16,8 +16,8 @@
       <div class="row">
         <% @categories.each do |category| %>
           <div class="col-md-12">
-            <%= check_box_tag "categories[]", category.id, false, class: "hidden filter-by-category", id: category.name %>
-            <%= label_tag category.name %>
+            <%= check_box_tag "categories[]", category.id, false, class: "hidden filter-by-category", id: category.id %>
+            <%= label_tag category.id, category.name %>
           </div>
         <% end %>
       </div>

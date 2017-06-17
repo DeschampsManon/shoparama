@@ -1,0 +1,24 @@
+<header id="page-header" class="administration">
+  <div class="col-md-12">
+    <h1><%= t('administration') %></h1>
+  </div>
+</header>
+<section class="clearfix">
+  <%= form_for(@category, url: {action: @category.new_record? ? "create" : "update"}, html: { class: "main-form clearfix validate-simple", id: "user-form" }) do |f| %>
+    <h2><%= t 'edit_category' %></h2>
+    <%= render 'shared/error_messages', target: @category %>
+    <div class="row">
+      <div class="col-md-12 margin-bot-15">
+        <div class="row">
+          <%= f.label :name, class: "required col-md-2" %>
+          <div class="col-md-10">
+            <%= f.text_field :name, class: "form-control", required: true, autofocus: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pull-right">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</section>

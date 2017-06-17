@@ -3,5 +3,8 @@ class Category < ApplicationRecord
   has_many :categorizations
 
   translates :name, :fallbacks_for_empty_translations => true
+
+  validates :name, presence: true, uniqueness: true
+
 end
 
