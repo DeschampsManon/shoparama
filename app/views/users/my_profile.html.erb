@@ -23,10 +23,16 @@
       </div>
     </div>
     <div class="row">
-      <% current_user.favorites.each do |favorite_product| %>
-        <article class="col-md-2">
-          <%= render partial: 'products/product', locals: {product: favorite_product} %>
-        </article>
+      <% if current_user.favorites.count > 0 %>
+        <% current_user.favorites.each do |favorite_product| %>
+          <article class="col-md-2">
+            <%= render partial: 'products/product', locals: {product: favorite_product} %>
+          </article>
+        <% end %>
+      <% else %>
+        <div class="col-md-12">
+          <%= t 'no_favorite' %>
+        </div>
       <% end %>
     </div>
   </section>

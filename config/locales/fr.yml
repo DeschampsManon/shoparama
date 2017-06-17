@@ -38,6 +38,8 @@ fr:
   prompt_default: -- selectionner --
   favorited: "%{product} a été ajouté à vos favoris"
   unfavorited: "%{product} ne fait plus partis de vos favoris"
+  no_product_found: Aucun produit trouvé
+  no_favorite: Vous n'avez aucun favori pour le moment
   will_paginate:
     page_gap: ...
   errors:

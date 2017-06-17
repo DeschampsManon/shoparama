@@ -1,9 +1,12 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:favorite]
   def index
+    @product_sellers = ProductSeller.all
+    @categories = Category.all
     if params[:search]
+      search = params[:search]
       product_ids = []
-      keywords = params[:search].strip.split(/\s+/)
+      keywords = search.strip.split(/\s+/)
       keywords.each_with_index do |keyword, index|
         if index != 0
           @product_sellers = @product_sellers.or(ProductSeller.where('lower(name) LIKE ?', "%#{keyword.downcase}%"))
@@ -14,17 +17,11 @@ class ProductsController < ApplicationController
       @product_sellers.each do |product_seller|
         product_ids << product_seller.id
       end
-      @categories = Category.joins(:product_sellers).where("product_sellers.id IN (?)", product_ids)
-    else
-      @product_sellers = ProductSeller.all
-      @categories = Category.all
-      if params[:category]
-        category_ids = params[:category]
-        @product_sellers = @product_sellers.joins(:categories).where("categories.id IN (?)", category_ids)
-        respond_to do |format|
-          format.js
-        end
-      end
+      @categories = Category.joins(:product_sellers).where("product_sellers.id IN (?)", product_ids).distinct
+    end
+    if params[:categories]
+      category_ids = params[:categories]
+      @product_sellers = @product_sellers.joins(:categories).where("categories.id IN (?)", category_ids)
     end
     @product_sellers = @product_sellers.paginate(:page => params[:page], :per_page => 15)
   end
@@ -51,7 +48,7 @@ class ProductsController < ApplicationController
 
     # CREATE PRODUCT SELLER
     product_seller = ProductSeller.new
-    product_seller.category_ids << category.id
+    product_seller.categories << category
     product_seller.website = api_product[:source]
     product_seller.url = api_product[:url]
     product_seller.price = api_product[:price]
