@@ -1,0 +1,38 @@
+<div class="container">
+  <header id="page-header" class="administration">
+    <div class="col-md-12">
+      <h1><%= t('administration') %></h1>
+    </div>
+  </header>
+  <section>
+    <h2><%= t('categories_list') %></h2>
+    <header id="page-sub-header">
+      <%= render 'shared/flash_alert' %>
+    </header>
+    <div class="table-responsive">
+      <table class="main-table datatable">
+        <thead>
+          <th><%= "#{t('name')} (#{I18n.locale })" %></th>
+          <th width="180"><%= t 'number_of_uses' %></th>
+          <th class="no-sorting" width="170"><%= t 'actions' %></th>
+        </thead>
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.name %></td>
+            <td class="center-text"><%= category.product_sellers.count %></td>
+            <td>
+              <div style="width:170px;">
+                <!-- EDIT -->
+                <%= link_to t('edit'), edit_admin_category_path(category), :class => 'btn btn-primary' %>
+                <!-- DELETE -->
+                <%= link_to t('delete'), admin_category_path(category), method: :delete, data: { confirm: t('confirm_destroy', element: category.name) }, :class => 'btn btn-danger' %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

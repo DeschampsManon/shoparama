@@ -5,6 +5,9 @@ fr:
   forgot_password: Mot de passe oublié
   admin: Admin
   manage_users: Gestion des utilisateurs
+  manage_categories: Gestion des catégories
+  name: Nom
+  number_of_uses: Nombre d'utilisation
   leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer
   required_to_save_change: Obligatoire pour confirmer les changements
   avatar_label: Avatar

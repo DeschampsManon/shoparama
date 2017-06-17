@@ -50,6 +50,8 @@ gem 'nokogiri'
 
 # GLOBALISATION & I18n
 gem 'i18n-js', '3.0.0.rc2'
+gem 'globalize', git: 'https://github.com/globalize/globalize'
+gem 'activemodel-serializers-xml'
 
 #SERVER
 gem 'puma', '~> 3.0'

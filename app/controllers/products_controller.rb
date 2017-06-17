@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
       category_ids = params[:categories]
       @product_sellers = @product_sellers.joins(:categories).where("categories.id IN (?)", category_ids)
     end
-    @product_sellers = @product_sellers.paginate(:page => params[:page], :per_page => 15)
+    @product_sellers = @product_sellers.paginate(:page => params[:page], :per_page => 16)
   end
 
   def create
