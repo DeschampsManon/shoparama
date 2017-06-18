@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :categories
+    resources :dashboard
   end
 
   get 'product/create_product' => 'products#create'
