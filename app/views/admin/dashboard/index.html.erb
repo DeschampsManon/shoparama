@@ -1,0 +1,24 @@
+<div class="container">
+  <%= render 'admin/shared/admin_header' %>
+  <section class="clearfix">
+    <div class="row">
+      <article>
+        <%# @nb_users %> <br>
+        <%# @nb_products %> <br>
+        <%# @nb_login %>
+
+        <% STATS.each do |key, value| %>
+            <article class="col-md-3 dashboard-stats">
+              <h2>
+                <i class="ion ion-<%= value[:icon] %>"></i>
+                <%= value[:title] %>
+              </h2>
+              <p class="count-stat">
+                <%= eval("@#{key}") %>
+              </p>
+            </article>
+        <% end %>
+      </article>
+    </div>
+  </section>
+</div>

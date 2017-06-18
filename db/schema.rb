@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617142144) do
+ActiveRecord::Schema.define(version: 20170618203925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,11 +36,20 @@ ActiveRecord::Schema.define(version: 20170617142144) do
   create_table "category_translations", force: :cascade do |t|
     t.integer  "category_id", null: false
     t.string   "locale",      null: false
-    t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
     t.index ["category_id"], name: "index_category_translations_on_category_id", using: :btree
     t.index ["locale"], name: "index_category_translations_on_locale", using: :btree
+  end
+
+  create_table "dashboards", force: :cascade do |t|
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "nb_users"
+    t.integer  "nb_products"
+    t.integer  "nb_login"
+    t.date     "job_date"
   end
 
   create_table "favorite_products", force: :cascade do |t|
@@ -130,6 +139,13 @@ ActiveRecord::Schema.define(version: 20170617142144) do
     t.integer "user_id"
     t.integer "role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.integer  "user_id"
+    t.inet     "user_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "products", "brands"

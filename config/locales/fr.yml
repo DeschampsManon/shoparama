@@ -6,6 +6,7 @@ fr:
   admin: Admin
   manage_users: Gestion des utilisateurs
   manage_categories: Gestion des catégories
+  dashboard: Tableau de bord
   name: Nom
   number_of_uses: Nombre d'utilisation
   leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer

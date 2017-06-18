@@ -53,6 +53,9 @@ gem 'i18n-js', '3.0.0.rc2'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
 
+# GEOLOCALISATION || TIME || COUNTRIES
+gem 'clockwork', require: false
+
 #SERVER
 gem 'puma', '~> 3.0'
 
