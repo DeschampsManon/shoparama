@@ -3,16 +3,13 @@ class Admin::DashboardController < ApplicationController
   before_action :authorized?, if: :current_user
 
   def index
-    @dashboard = Dashboard.all
+    @dashboard = Dashboard.where(job_date: Date.today - (1).day).first
+    @dashboard_last_week = Dashboard.where(job_date: Date.today.beginning_of_week - (1).day).first
 
-    @nb_users = 0
-    @nb_products = 0
-    @nb_login = 0
-
-    @dashboard.each do |stat|
-      @nb_users += stat.nb_users
-      @nb_products += stat.nb_products
-      @nb_login += stat.nb_login
+    partners = ['ebay', 'amazon']
+    @data_partners_products_quantity = []
+    partners.each do |partner|
+      @data_partners_products_quantity << {name: partner, y: @dashboard.send("nb_products_#{partner}")}
     end
   end
 

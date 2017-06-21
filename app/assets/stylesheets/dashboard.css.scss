@@ -1,0 +1,23 @@
+@import "variables";
+
+.dashboard-stats {
+  > div {
+    border-right: 2px solid $black;
+  }
+  &:last-child {
+    > div {
+      border-right: 0 solid transparent;
+    }
+  }
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .count-stat {
+    font-size: 18px;
+    font-weight: 800;
+  }
+}

@@ -4,10 +4,15 @@ fr:
   create_account: Créer un compte
   forgot_password: Mot de passe oublié
   admin: Admin
+  nb_users: Nombre d'utilisateurs
+  nb_products: Nombre de produits
+  nb_login: Nombre de connexions
   manage_users: Gestion des utilisateurs
   manage_categories: Gestion des catégories
   dashboard: Tableau de bord
   name: Nom
+  no_stat_yet: Aucune donnée pour le moment
+  from_last_week: Depuis la semaine dernière
   number_of_uses: Nombre d'utilisation
   leave_blank_if_no_change: Laisser vide si vous ne voulez pas changer
   required_to_save_change: Obligatoire pour confirmer les changements

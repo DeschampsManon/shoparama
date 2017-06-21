@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require dataTables/jquery.dataTables
 //= require twitter/bootstrap
+//= require highcharts
+//= require highcharts/highcharts-more
 //= require i18n
 //= require i18n/translations
 //= require jquery.validate

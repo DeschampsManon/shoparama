@@ -21,6 +21,7 @@ gem 'twitter-bootstrap-rails'
 
 #JS
 gem 'coffee-rails', '~> 4.2'
+gem 'highcharts-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
