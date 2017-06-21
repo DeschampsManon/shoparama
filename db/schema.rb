@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 20170617142144) do
   create_table "category_translations", force: :cascade do |t|
     t.integer  "category_id", null: false
     t.string   "locale",      null: false
-    t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
     t.index ["category_id"], name: "index_category_translations_on_category_id", using: :btree
     t.index ["locale"], name: "index_category_translations_on_locale", using: :btree
   end
