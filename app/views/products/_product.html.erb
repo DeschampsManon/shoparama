@@ -13,6 +13,6 @@
     </div>
   </div>
   <h2><%= product.name.truncate(30) %></h2>
-  <span class="product-price"><%= product.price %></span>
+  <span class="product-price"><%= "#{product.price} €" if product.price %></span>
 </div>
 
