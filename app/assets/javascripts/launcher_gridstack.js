@@ -1,7 +1,12 @@
 function gridstack_params(){
     var options = {
-        cellHeight: 80,
-        verticalMargin: 10
+        cellHeight: 100,
+        verticalMargin: 20,
+        horizontalMargin: 20,
+        minWidth:4,
+        resizable: {
+            handles: 'e, se, s, sw, w'
+        }
     };
 
     $('.grid-stack').gridstack(options);
