@@ -1,35 +1,22 @@
 <div class="container">
   <%= render 'admin/shared/admin_header' %>
-  <section class="clearfix no-padding-top">
-    <div class="row">
-      <% STATS.each do |key, value| %>
-        <article class="col-md-4 dashboard-stats">
-          <div>
-            <h2>
-              <i class="ion ion-<%= value[:icon] %>"></i>
-              <%= value[:title] %>
-            </h2>
-            <% if @dashboard %>
-              <p class="count-stat">
-                <%= @dashboard.send(key) %> <br>
-              </p>
-              <p>
-                <%= evolution_from_last_week(@dashboard_last_week.send(key), @dashboard.send(key)) %>
-                <span class="light-text"><%= t 'from_last_week' %></span>
-              </p>
-            <% else %>
-              <%= t 'no_stat_yet' %>
-            <% end %>
-          </div>
-        </article>
-      <% end %>
-    </div>
-  </section>
+  <%= render 'stats_evolution' %>
   <section class="clearfix">
-    <div class="row">
-      <div class="col-md-4">
-        <%= render 'admin/dashboard/charts/chart_pie_partners_quantity' %>
+    <div class="grid-stack">
+      <div class="grid-stack-item"
+           data-gs-x="0" data-gs-y="0"
+           data-gs-width="4" data-gs-height="2">
+        <div class="grid-stack-item-content">fefez</div>
+      </div>
+      <div class="grid-stack-item"
+           data-gs-x="4" data-gs-y="0"
+           data-gs-width="4" data-gs-height="4">
+        <div class="grid-stack-item-content">fzefez</div>
       </div>
     </div>
   </section>
+
+
+
+
 </div>
