@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :authenticate_user!, only: [:favorite]
+  before_action :authenticate_user!, only: :favorite
   def index
     @product_sellers = ProductSeller.all
     @categories = Category.all

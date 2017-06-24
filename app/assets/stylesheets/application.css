@@ -1,10 +1,14 @@
 /*
+ *= require jquery-ui
  *= require ionicons
+ *= require dataTables/jquery.dataTables
+*= require select2
+ *= require select2-bootstrap
  *= require twitter-bootstrap-static/bootstrap
  *= require twitter-bootstrap-static/sprites
+
+ ** vendor/assets/stylesheets
+ *= require gridstack.min.css
+
  *= require_tree .
- *= require dataTables/jquery.dataTables
- *= require select2
- *= require select2-bootstrap
- *= require_self
 */

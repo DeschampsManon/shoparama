@@ -1,0 +1,70 @@
+@import "variables";
+
+.grid-stack {
+  margin: 40px -10px;
+  .grid-stack-item-content {
+    -webkit-box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
+    -moz-box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
+    box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
+    border-radius: 4px;
+    border: 2px solid $black;
+    h3 {
+      background-color: $black;
+      color: #fff;
+      padding: 5px;
+      margin: -2px;
+      text-transform: uppercase;
+      .text-title {
+        display: block;
+        color: $black;
+        background-color: #fff;
+        font-size: 13px;
+        border-top-left-radius: 2px;
+        padding: 10px;
+        float: left;
+        width: calc(100% - 67px);
+        width: -webkit-calc(100% - 70px);
+        width: -moz-calc(100% - 70px);
+      }
+      .block-actions {
+        float: right;
+        ul {
+          li {
+            float: left;
+            > a {
+              color: #fff;
+              font-size: 20px;
+              display: block;
+              padding: 6px 10px;
+              &:hover {
+                opacity: .8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.dashboard-stats {
+  > div {
+    border-right: 2px solid $black;
+  }
+  &:last-child {
+    > div {
+      border-right: 0 solid transparent;
+    }
+  }
+  h2 {
+    margin: 0;
+    font-weight: 600;
+    letter-spacing: 0;
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .count-stat {
+    font-size: 18px;
+    font-weight: 800;
+  }
+}

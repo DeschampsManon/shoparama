@@ -1,8 +1,4 @@
-<header id="page-header" class="administration">
-  <div class="col-md-12">
-    <h1><%= t('administration') %></h1>
-  </div>
-</header>
+<%= render 'admin/shared/admin_header' %>
 <section class="clearfix">
   <%= form_for(@category, url: {action: @category.new_record? ? "create" : "update"}, html: { class: "main-form clearfix validate-simple", id: "user-form" }) do |f| %>
     <h2><%= t 'edit_category' %></h2>

@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617142144) do
+ActiveRecord::Schema.define(version: 20170624112654) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_dashboards", force: :cascade do |t|
+    t.integer  "nb_users"
+    t.integer  "nb_products"
+    t.integer  "nb_login"
+    t.integer  "nb_products_amazon"
+    t.integer  "nb_products_ebay"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "brands", force: :cascade do |t|
     t.string   "name"
@@ -36,9 +46,9 @@ ActiveRecord::Schema.define(version: 20170617142144) do
   create_table "category_translations", force: :cascade do |t|
     t.integer  "category_id", null: false
     t.string   "locale",      null: false
-    t.string   "name"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "name"
     t.index ["category_id"], name: "index_category_translations_on_category_id", using: :btree
     t.index ["locale"], name: "index_category_translations_on_locale", using: :btree
   end
@@ -101,6 +111,13 @@ ActiveRecord::Schema.define(version: 20170617142144) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
     t.index ["name"], name: "index_roles_on_name", using: :btree
+  end
+
+  create_table "user_logins", force: :cascade do |t|
+    t.integer  "user_id"
+    t.inet     "user_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|

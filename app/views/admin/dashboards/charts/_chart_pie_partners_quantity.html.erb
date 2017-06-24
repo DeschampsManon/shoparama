@@ -1,0 +1,94 @@
+<div id="partners-quantity" class="chart-container"></div>
+<script type="text/javascript" charset="utf-8">
+    Highcharts.chart('partners-quantity', {
+        colors: ['#26b99a', '#FF5676', '#bdc3c7', '#57C8F2', '#BF56E9'],
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            backgroundColor: null,
+            type: 'pie'
+        },
+        title: {
+            text: ''
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    formatter: function() {
+                        if(this.point.options.y > 5){
+                            return this.point.percentage.toFixed(1) + "%";
+                        }
+                    },
+                    distance: -40,
+                    color:'white',
+                    style: {
+                        textShadow: false,
+                        textOutline: 0
+                    }
+                },
+                showInLegend: true,
+            }
+        },
+        legend: {
+            title: {
+                text: '<%= t('partners') %>',
+                style: {
+                    color: '#333',
+                    fontSize: '13px',
+                    textTransform: 'uppercase',
+                }
+            },
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            floating: false,
+            itemMarginTop: 5,
+            itemMarginBottom: 5,
+            itemStyle: {
+                fontWeight: 300,
+                textTransform: 'capitalize',
+                color: '#333',
+                lineHeight: '14px',
+            },
+            itemHoverStyle: {
+                color: '#333',
+            },
+        },
+        exporting: {
+            enabled:false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            innerSize: '50%',
+            name: '<%= t('nb_products') %>',
+            data: <%= raw @data_partners_products_quantity.to_json %>
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        align: 'center',
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal',
+                        title: {
+                            text: '',
+                        },
+                    },
+                }
+            }]
+        }
+    });
+</script>
+</div>

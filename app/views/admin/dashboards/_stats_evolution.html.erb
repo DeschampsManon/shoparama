@@ -1,0 +1,25 @@
+<section class="clearfix no-padding-top">
+  <div class="row">
+    <% STATS.each do |key, value| %>
+      <article class="col-md-4 dashboard-stats">
+        <div>
+          <h2>
+            <i class="ion ion-<%= value[:icon] %>"></i>
+            <%= value[:title] %>
+          </h2>
+          <% if @dashboard %>
+              <p class="count-stat">
+                <%= @dashboard.send(key) %> <br>
+              </p>
+              <p>
+                <%= evolution_from_last_week(@dashboard_last_week.send(key), @dashboard.send(key)) %>
+                <span class="light-text"><%= t 'from_last_week' %></span>
+              </p>
+          <% else %>
+              <%= t 'no_stat_yet' %>
+          <% end %>
+        </div>
+      </article>
+    <% end %>
+  </div
+</section>

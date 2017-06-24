@@ -12,6 +12,10 @@
   font-weight: 600;
 }
 
+.light-text {
+  font-weight: 200;
+}
+
 .black-text {
   color: $black!important;
 }
@@ -22,4 +26,8 @@
 
 .green-text {
   color: $green!important;
+}
+
+.italic-text {
+  font-style: italic;
 }

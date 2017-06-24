@@ -21,10 +21,13 @@ gem 'twitter-bootstrap-rails'
 
 #JS
 gem 'coffee-rails', '~> 4.2'
+gem 'highcharts-rails'
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'jquery-ui-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'jquery-validation-rails'
+gem 'lodash-rails'
 gem 'therubyracer'
 gem 'uglifier', '>= 1.3.0'
 
@@ -52,6 +55,9 @@ gem 'nokogiri'
 gem 'i18n-js', '3.0.0.rc2'
 gem 'globalize', git: 'https://github.com/globalize/globalize'
 gem 'activemodel-serializers-xml'
+
+# GEOLOCALISATION || TIME || COUNTRIES
+gem 'clockwork', require: false
 
 #SERVER
 gem 'puma', '~> 3.0'
