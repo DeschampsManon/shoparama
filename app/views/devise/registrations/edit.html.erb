@@ -1,23 +1,46 @@
 <div class="container">
-  <header id="page-header" class="profile">
-    <section id="user-data">
-      <div class="content-flex avatar upload-file">
-        <%= image_tag current_user.avatar(:medium), data: {id: "avatar"}, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
-      </div>
-      <div class="content-next-avatar">
-        <h1>
-          <span class="clear" data-id="user_first_name"><%= current_user.first_name %></span> <br>
-          <span class="last-name" data-id="user_last_name"><%= current_user.last_name %></span>
-        </h1>
-        <ul>
-          <li data-id="user_email"><%= current_user.email %></li>
-        </ul>
-      </div>
-    </section>
-  </header>
-  <section class="clearfix">
-    <h2><%= t 'my_profile' %></h2>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "main-form live-edit-form validate-password-form" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "main-form live-edit-form validate-password-form" }) do |f| %>
+    <header id="page-header" class="profile">
+      <section id="cover-banner" class="file-upload-container">
+        <%= image_tag current_user.cover_banner, data: {id: "cover_banner"}, onerror:"this.onerror=null;this.src='#{image_url('profiles_header.png')}';" %>
+        <%= f.label :cover_banner, class: "label-field-absolute" %>
+        <%= f.file_field :cover_banner, class: "hidden" %>
+      </section>
+      <section id="user-data">
+        <div class="content-flex avatar upload-file">
+          <%= image_tag @user.avatar(:medium), data: {id: "avatar"}, onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+        </div>
+        <div class="content-next-avatar">
+          <h1>
+      <span class="clear" data-id="user_first_name">
+        <% if @user.first_name.present? %>
+          <%= @user.first_name %>
+        <% else %>
+          <%= t('activerecord.attributes.user.first_name') %>
+        <% end %>
+      </span> <br>
+            <span class="last-name" data-id="user_last_name">
+        <% if @user.last_name.present? %>
+          <%= @user.last_name %>
+        <% else %>
+          <%= t('activerecord.attributes.user.last_name') %>
+        <% end %>
+      </span>
+          </h1>
+          <ul>
+            <li data-id="user_email">
+              <% if @user.email.present? %>
+                  <%= @user.email %>
+              <% else %>
+                  <%= t('activerecord.attributes.user.email') %>
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </header>
+    <section class="clearfix padding-bot-40">
+      <h2><%= t 'my_profile' %></h2>
       <%= devise_error_messages! %>
       <div class="row">
         <div class="col-md-6 margin-bot-15">
@@ -30,13 +53,13 @@
         </div>
         <div class="col-md-6 margin-bot-15">
           <div class="row">
-            <div class="file-upload-container">
+            <div class="file-upload-container avatar">
               <div class="col-md-2">
                 <span><%= t('avatar_label') %></span>
               </div>
               <div class="col-md-10">
                 <%= f.label :avatar %>
-                <%= f.file_field :avatar, autofocus: true %>
+                <%= f.file_field :avatar, class: "form-control" %>
               </div>
             </div>
           </div>
@@ -83,7 +106,7 @@
           <div class="row">
             <%= f.label :current_password, class: "col-md-1" %>
             <div class="col-md-11">
-              <%= f.password_field :current_password, class: "form-control", placeholder: t('required_to_save_change'), autocomplete: "off" %>
+              <%= f.password_field :current_password, class: "form-control", placeholder: t('required_to_save_change'), autocomplete: "off", required: true %>
             </div>
           </div>
         </div>
@@ -91,7 +114,7 @@
       <div class="pull-right">
         <%= f.submit nil, class: "btn btn-primary" %>
       </div>
-    <% end %>
-  </section>
+    </section>
+  <% end %>
 </div>
 

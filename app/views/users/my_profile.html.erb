@@ -1,8 +1,11 @@
 <div class="container">
   <header id="page-header" class="profile">
+    <section id="cover-banner">
+      <%= image_tag current_user.cover_banner, onerror:"this.onerror=null;this.src='#{image_url('profiles_header.png')}';" %>
+    </section>
     <section id="user-data">
       <div class="content-flex avatar upload-file">
-        <%= image_tag current_user.avatar(:medium), onerror:"this.onerror=null;this.src='#{image_url('no-image.png')}';" %>
+        <%= image_tag current_user.avatar(:medium), onerror:"this.onerror=null;this.src='#{image_url('no_image.png')}';" %>
       </div>
       <div class="content-next-avatar">
         <h1>
@@ -16,6 +19,7 @@
       </div>
     </section>
   </header>
+
   <section class="clearfix padding-top-40">
     <div class="row">
       <div class="col-md-12">
