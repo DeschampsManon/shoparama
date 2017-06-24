@@ -3,7 +3,7 @@ function gridstack_params(){
         cellHeight: 100,
         verticalMargin: 20,
         horizontalMargin: 20,
-        minWidth:4,
+        minWidth: 4,
         resizable: {
             handles: 'e, se, s, sw, w'
         }
@@ -12,7 +12,7 @@ function gridstack_params(){
     $('.grid-stack').gridstack(options);
 }
 
-$(document).on('ready', function () {
+$(document).ready(function () {
     gridstack_params();
 });
 

@@ -26,7 +26,7 @@
                             return this.point.percentage.toFixed(1) + "%";
                         }
                     },
-                    distance: -30,
+                    distance: -40,
                     color:'white',
                     style: {
                         textShadow: false,
@@ -71,7 +71,24 @@
             innerSize: '50%',
             name: '<%= t('nb_products') %>',
             data: <%= raw @data_partners_products_quantity.to_json %>
-        }]
+        }],
+        responsive: {
+            rules: [{
+                condition: {
+                    maxWidth: 500
+                },
+                chartOptions: {
+                    legend: {
+                        align: 'center',
+                        verticalAlign: 'bottom',
+                        layout: 'horizontal',
+                        title: {
+                            text: '',
+                        },
+                    },
+                }
+            }]
+        }
     });
 </script>
 </div>
