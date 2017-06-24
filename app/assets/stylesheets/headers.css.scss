@@ -77,6 +77,11 @@
   min-height: 220px;
   background-color: #fff;
   margin-bottom: 30px;
+  background-color: #fff;
+  background-image: asset-url("page_header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   display: flex;
   &.profile {
     margin-bottom: 135px;
@@ -90,8 +95,12 @@
       top: 0;
       left: 0;
       img {
-        width: 100%;
-        vertical-align: middle;
+        min-width: 100%;
+        min-height: 100%;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        bottom: 0;
       }
     }
     #user-data {

@@ -79,6 +79,7 @@ fr:
         current_password: Mot de passe actuel
         remember_me: Se souvenir de moi
         avatar: Télécharger une photo de profil
+        cover_banner: " "
     errors:
       models:
         user:
