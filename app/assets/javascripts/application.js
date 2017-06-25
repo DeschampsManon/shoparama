@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require ahoy
 //= require data-confirm-modal
 //= require dataTables/jquery.dataTables
 //= require highcharts

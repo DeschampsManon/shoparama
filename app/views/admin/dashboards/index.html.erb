@@ -1,5 +1,10 @@
 <div class="container">
   <%= render 'admin/shared/admin_header' %>
   <%= render 'stats_evolution' %>
+  <div class="row">
+    <div class="col-md-12 margin-top-20">
+      <%= render 'shared/flash_alert' %>
+    </div>
+  </div>
   <%= render 'dashboard_charts' %>
 </div>

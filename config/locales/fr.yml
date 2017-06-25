@@ -8,6 +8,7 @@ fr:
   nb_users: Nombre d'utilisateurs
   nb_products: Nombre de produits
   nb_login: Nombre de connexions
+  manage_charts: Gestion des graphiques
   manage_users: Gestion des utilisateurs
   manage_categories: Gestion des catégories
   dashboard: Tableau de bord
@@ -41,8 +42,10 @@ fr:
   confirm_destroy_refuse: Retour
   users: Utilisateurs
   users_list: Liste des utilisateurs
+  charts_list: Liste des graphiques
   categories_list: Liste des catégories
   new_user: Nouvel utilisateur
+  new_chart: Nouveau graphique
   my_profile: Mon profil
   contact: Contact
   actions: Actions

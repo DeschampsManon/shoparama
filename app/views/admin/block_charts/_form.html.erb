@@ -1,0 +1,28 @@
+<%= render 'admin/shared/admin_header' %>
+<section class="clearfix">
+  <%= form_for(@chart, html: { class: "main-form clearfix validate-simple" }) do |f| %>
+      <h2><%= t 'edit_chart' %></h2>
+      <%= render 'shared/error_messages', target: @chart %>
+      <div class="row">
+        <div class="col-md-6 margin-bot-15">
+          <div class="row">
+            <%= f.label :name, class: "required col-md-2" %>
+            <div class="col-md-10">
+              <%= f.text_field :name, class: "form-control", required: true, autofocus: true %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 margin-bot-15">
+          <div class="row">
+            <%= f.label :title, class: "required col-md-2" %>
+            <div class="col-md-10">
+              <%= f.text_field :title, class: "form-control", required: true %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pull-right">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+  <% end %>
+</section>

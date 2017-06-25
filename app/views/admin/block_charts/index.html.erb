@@ -1,0 +1,39 @@
+<div class="container">
+    <%= render 'admin/shared/admin_header' %>
+    <section>
+        <h2><%= t('charts_list') %></h2>
+        <header id="page-sub-header">
+            <div class="pull-left alert-container">
+                <%= render 'shared/flash_alert' %>
+            </div>
+            <aside class="pull-right">
+                <%= link_to t('new_chart'), new_admin_block_chart_path, class: 'btn btn-lg btn-chart' %>
+            </aside>
+        </header>
+        <div class="table-responsive">
+            <table class="main-table datatable">
+                <thead>
+                <th><%= t 'label' %></th>
+                <th><%= t 'title' %></th>
+                <th class="no-sorting" width="170"><%= t 'actions' %></th>
+                </thead>
+                <tbody>
+                <% @charts.each do |chart| %>
+                <tr>
+                  <td> <%= chart.name %> </td>
+                  <td> <%= chart.title %> </td>
+                  <td>
+                      <div style="width:170px;">
+                          <!-- EDIT -->
+                          <%= link_to t('edit'), edit_admin_block_chart_path(chart), :class => 'btn btn-primary' %>
+                          <!-- DELETE -->
+                          <%= link_to t('delete'), admin_block_chart_path(chart), method: :delete, data: { confirm: t('confirm_destroy', element: chart.name) }, :class => 'btn btn-danger' %>
+                      </div>
+                  </td>
+                </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>

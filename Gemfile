@@ -66,6 +66,9 @@ gem 'puma', '~> 3.0'
 #DATABASE
 gem 'pg', '~> 0.18'
 
+#TRAFFIC
+gem 'ahoy_matey'
+
 group :development, :test do
   gem 'byebug', platform: :mri
   gem 'capistrano-rails'
