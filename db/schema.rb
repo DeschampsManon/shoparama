@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625154515) do
+ActiveRecord::Schema.define(version: 20170625214306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20170625154515) do
     t.integer  "width",      default: 4
     t.integer  "height",     default: 3
     t.boolean  "presence",   default: true
+    t.string   "title"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
-    t.string   "title"
   end
 
   create_table "admin_dashboards", force: :cascade do |t|
@@ -33,15 +33,17 @@ ActiveRecord::Schema.define(version: 20170625154515) do
     t.integer  "nb_login"
     t.integer  "nb_products_amazon"
     t.integer  "nb_products_ebay"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.integer  "nb_products_amazon_visited"
+    t.integer  "nb_products_ebay_visited"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "ahoy_events", force: :cascade do |t|
     t.integer  "visit_id"
     t.integer  "user_id"
     t.string   "name"
-    t.jsonb    "properties"
+    t.json     "properties"
     t.datetime "time"
     t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time", using: :btree
     t.index ["user_id", "name"], name: "index_ahoy_events_on_user_id_and_name", using: :btree

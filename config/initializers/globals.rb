@@ -8,3 +8,13 @@ PARTNERS = [
     'ebay',
     'amazon'
 ]
+
+DASHBOARD_COLORS = [
+    '#728187',
+    '#BFC0C0',
+    '#818D92',
+    '#0D1B2A',
+    '#656D77',
+    '#A5AEB2',
+    '#C2C9C9'
+]

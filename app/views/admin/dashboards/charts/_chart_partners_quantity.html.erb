@@ -1,7 +1,7 @@
 <div id="partners-quantity" class="chart-container"></div>
 <script type="text/javascript" charset="utf-8">
     Highcharts.chart('partners-quantity', {
-        colors: ['#728187', '#BFC0C0', '#818D92', '#0D1B2A', '#656D77', '#A5AEB2', '#C2C9C9'],
+        colors: <%= raw DASHBOARD_COLORS %>,
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -27,7 +27,7 @@
                             return this.point.percentage.toFixed(1) + "%";
                         }
                     },
-                    distance: -40,
+                    distance: -35,
                     color:'white',
                     style: {
                         textShadow: false,

@@ -7,7 +7,7 @@
     <% end %>
     <div class="product-actions">
       <%= is_favorite(product) %>
-      <%= link_to product.url, target: "_blank", class: "green-text green-border" do %>
+      <%= link_to product.url, target: "_blank", class: "green-text green-border product-visited", id: "product_#{product.product_id}" do %>
         <i class="ion ion-ios-search-strong"></i>
       <% end %>
     </div>
