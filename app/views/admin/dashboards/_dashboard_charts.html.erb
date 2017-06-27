@@ -1,33 +1,32 @@
-<section class="clearfix">
-  <div id="grid-stack" class="grid-stack" data-gs-width="12">
-    <% @charts.where(presence: true).each do |chart| %>
-      <div class="grid-stack-item"
-           data-id="<%= chart.id.to_s %>"
-           data-gs-x="<%= chart.x.to_s %>"
-           data-gs-y="<%= chart.y.to_s %>"
-           data-gs-width="<%= chart.width.to_s %>"
-           data-gs-height="<%= chart.height.to_s %>"
-           data-gs-min-width="3"
-      >
-        <h3 class="clearfix">
-            <span class="text-title">
-              <%= chart.title.to_s %>
-            </span>
-          <nav class="block-actions">
-            <ul>
-              <li>
-                <%= link_to raw('<i class="ion ion-arrow-up-b"></i>'), "#!", id: "toggle-block-chart" %>
-              </li>
-              <li>
-                <%= link_to raw('<i class="ion ion-close-round"></i>'), remove_chart_from_dashboard_admin_dashboards_path(id: chart.id), id: "remove-chart-from-dashboard", method: :post %>
-              </li>
-            </ul>
-          </nav>
-        </h3>
-        <div class="grid-stack-item-content">
-          <%= render "admin/dashboards/charts/chart_#{chart.name}" %>
-        </div>
+<div id="grid-stack" class="grid-stack" data-gs-width="12">
+  <% @charts.where(presence: true).each do |chart| %>
+    <div class="grid-stack-item"
+         data-id="<%= chart.id.to_s %>"
+         data-gs-x="<%= chart.x.to_s %>"
+         data-gs-y="<%= chart.y.to_s %>"
+         data-gs-width="<%= chart.width.to_s %>"
+         data-gs-height="<%= chart.height.to_s %>"
+         data-gs-min-width="3"
+         data-gs-auto-position="true"
+    >
+      <h3 class="clearfix">
+          <span class="text-title">
+            <%= chart.title.to_s %>
+          </span>
+        <nav class="block-actions">
+          <ul>
+            <li>
+              <%= link_to raw('<i class="ion ion-arrow-up-b"></i>'), "#!", id: "toggle-block-chart" %>
+            </li>
+            <li>
+              <%= link_to raw('<i class="ion ion-close-round"></i>'), remove_chart_from_dashboard_admin_dashboards_path(id: chart.id), id: "remove-chart-from-dashboard", method: :post %>
+            </li>
+          </ul>
+        </nav>
+      </h3>
+      <div class="grid-stack-item-content">
+        <%= render "admin/dashboards/charts/chart_#{chart.name}" %>
       </div>
-    <% end %>
-  </div>
-</section>
+    </div>
+  <% end %>
+</div>

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       collection do
         post 'change_block_chart'
         post 'remove_chart_from_dashboard'
+        post 'add_block_chart_to_dashboard'
       end
     end
     resources :block_charts

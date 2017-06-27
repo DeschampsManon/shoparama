@@ -6,15 +6,13 @@
             type: 'area',
             backgroundColor: null,
             plotBackgroundColor: null,
-            marginTop: 60,
+            marginTop: 100,
         },
         title: {
             text: ''
         },
         xAxis: {
             allowDecimals: false,
-            gridLineWidth: 0,
-            minorGridLineWidth: 0,
             categories: <%= raw @data_amazon_products_visited_each_day.map{|k,v| "#{k.to_s}" }.to_json %>
         },
         yAxis: {

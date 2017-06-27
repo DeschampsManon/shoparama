@@ -12,15 +12,14 @@ class DashboardJob < ActiveJob::Base
     products_visited = Ahoy::Event.where(name: "$click").where("properties->>'class' like ?", "%product-visited%").where("time <= ?", start_date)
     nb_products_amazon_visited = 0
     nb_products_ebay_visited = 0
+
     products_visited.each do |product_visited|
       product_id = product_visited.properties["id"].partition('product_').last
-      product = Product.find(product_id)
-      product.product_sellers.each do |product_seller|
-        if product_seller.website == "amazon"
-          nb_products_amazon_visited += 1
-        else
-          nb_products_ebay_visited += 1
-        end
+      product = ProductSeller.where(product_id: product_id ).first
+      if product.website == "amazon"
+        nb_products_amazon_visited += 1
+      else
+        nb_products_ebay_visited += 1
       end
     end
 

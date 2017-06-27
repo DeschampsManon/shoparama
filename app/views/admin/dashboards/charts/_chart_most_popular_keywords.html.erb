@@ -1,0 +1,52 @@
+<div id="most-popular-keywords" class="chart-container"></div>
+<script type="text/javascript" charset="utf-8">
+    Highcharts.chart('most-popular-keywords', {
+        colors: <%= raw DASHBOARD_COLORS %>,
+        chart: {
+            type: 'bar',
+            marginTop: 60,
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            categories: <%= raw @most_popular_kewords.map{|k,v| "#{k.to_s}" }.to_json %>,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            title: {
+                text: null
+            },
+        },
+        yAxis: {
+            min: 0,
+            allowDecimals: false,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            title: {
+                text: '',
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            pointFormat: ' <%= t('Popularity') %> : {point.y:,.0f}'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            data: <%= raw @most_popular_kewords.map{|k,v| {y: v} }.to_json %>
+        }]
+    });
+</script>

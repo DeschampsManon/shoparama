@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170625214306) do
+ActiveRecord::Schema.define(version: 20170626130901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20170625214306) do
     t.integer  "width",      default: 4
     t.integer  "height",     default: 3
     t.boolean  "presence",   default: true
-    t.string   "title"
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
+    t.string   "title"
   end
 
   create_table "admin_dashboards", force: :cascade do |t|
@@ -33,10 +33,10 @@ ActiveRecord::Schema.define(version: 20170625214306) do
     t.integer  "nb_login"
     t.integer  "nb_products_amazon"
     t.integer  "nb_products_ebay"
-    t.integer  "nb_products_amazon_visited"
-    t.integer  "nb_products_ebay_visited"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
+    t.integer  "nb_products_amazon_visited"
+    t.integer  "nb_products_ebay_visited"
   end
 
   create_table "ahoy_events", force: :cascade do |t|
@@ -136,6 +136,13 @@ ActiveRecord::Schema.define(version: 20170625214306) do
     t.datetime "updated_at"
     t.index ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
     t.index ["name"], name: "index_roles_on_name", using: :btree
+  end
+
+  create_table "user_keywords", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "counter",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "user_logins", force: :cascade do |t|

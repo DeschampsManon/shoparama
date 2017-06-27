@@ -21,6 +21,10 @@ class Admin::DashboardsController < ApplicationController
       @data_ebay_products_visited_each_day[dashboard.created_at.strftime("%d-%b").to_s] = dashboard.nb_products_ebay_visited
     end
 
+    @most_popular_kewords = {}
+    UserKeyword.all.each do |user_keyword|
+      @most_popular_kewords[user_keyword.name] = user_keyword.counter
+    end
     @charts = Admin::BlockChart.all
   end
 
@@ -43,4 +47,12 @@ class Admin::DashboardsController < ApplicationController
     block_chart.save!
     redirect_to :back, notice: t('successfully_destroyed')
   end
+
+  def add_block_chart_to_dashboard
+    block_chart = Admin::BlockChart.find(params['id'])
+    block_chart.presence = true
+    block_chart.save!
+    redirect_to :back, notice: t('successfully_added')
+  end
+
 end

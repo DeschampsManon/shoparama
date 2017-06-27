@@ -13,6 +13,7 @@ fr:
   manage_categories: Gestion des catégories
   dashboard: Tableau de bord
   name: Nom
+  add_block_chart: Ajouter un graphique
   no_stat_yet: Aucune donnée pour le moment
   from_last_week: Depuis la semaine dernière
   number_of_uses: Nombre d'utilisation
@@ -33,6 +34,7 @@ fr:
   datatable_previous: page précédente
   datatable_next: page suivante
   form_file_error_format: Veuillez entrer un format d'image valide
+  successfully_added: L'élément a bien été ajouté
   successfully_destroyed: L'élément a bien été supprimé
   successfully_updated: L'élément a bien été mis à jour
   successfully_created: L'élément a bien été créé
@@ -40,6 +42,7 @@ fr:
   confirm_destroy_title: Êtes vous sûr ?
   confirm_destroy_accept: J'accepte
   confirm_destroy_refuse: Retour
+  all_chart_present_on_dashboard: Tous les graphiques disponibles sont présents sur le tableau de bord
   users: Utilisateurs
   users_list: Liste des utilisateurs
   charts_list: Liste des graphiques
