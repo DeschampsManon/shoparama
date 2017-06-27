@@ -1,0 +1,24 @@
+<div id="charts-available" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><%= t 'add_block_chart' %></p>
+        <% if @charts.where(presence: false).count > 0 %>
+          <div class="row">
+            <% @charts.where(presence: false).each do |chart| %>
+                <div class="col-md-6">
+                  <%= link_to chart.name.truncate(25), add_block_chart_to_dashboard_admin_dashboards_path(id: chart.id), class: "btn btn-add-chart total", method: :post %>
+                </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p class="light-text"><%= t 'all_chart_present_on_dashboard' %></p>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

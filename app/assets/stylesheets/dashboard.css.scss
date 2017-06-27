@@ -2,48 +2,54 @@
 
 .grid-stack {
   margin: 40px -10px;
+  h3 {
+    background-color: $black;
+    color: #fff;
+    padding: 5px;
+    margin: -2px 10px;
+    text-transform: uppercase;
+    position: relative;
+    z-index: 10;
+    cursor: move;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    .text-title {
+      display: block;
+      color: $black;
+      background-color: #fff;
+      font-size: 13px;
+      border-top-left-radius: 2px;
+      padding: 10px;
+      float: left;
+      width: calc(100% - 67px);
+      width: -webkit-calc(100% - 70px);
+      width: -moz-calc(100% - 70px);
+    }
+    .block-actions {
+      float: right;
+      ul {
+        li {
+          float: left;
+          > a {
+            color: #fff;
+            font-size: 20px;
+            display: block;
+            padding: 6px 10px;
+            &:hover {
+              opacity: .8;
+            }
+          }
+        }
+      }
+    }
+  }
   .grid-stack-item-content {
     -webkit-box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
     -moz-box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
     box-shadow: inset 0px 0px 30px 0px rgba(238,238,238,1);
     border-radius: 4px;
     border: 2px solid $black;
-    h3 {
-      background-color: $black;
-      color: #fff;
-      padding: 5px;
-      margin: -2px;
-      text-transform: uppercase;
-      .text-title {
-        display: block;
-        color: $black;
-        background-color: #fff;
-        font-size: 13px;
-        border-top-left-radius: 2px;
-        padding: 10px;
-        float: left;
-        width: calc(100% - 67px);
-        width: -webkit-calc(100% - 70px);
-        width: -moz-calc(100% - 70px);
-      }
-      .block-actions {
-        float: right;
-        ul {
-          li {
-            float: left;
-            > a {
-              color: #fff;
-              font-size: 20px;
-              display: block;
-              padding: 6px 10px;
-              &:hover {
-                opacity: .8;
-              }
-            }
-          }
-        }
-      }
-    }
+    cursor: move;
   }
 }
 

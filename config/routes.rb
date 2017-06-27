@@ -6,7 +6,14 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users
     resources :categories
-    resources :dashboards
+    resources :dashboards do
+      collection do
+        post 'change_block_chart'
+        post 'remove_chart_from_dashboard'
+        post 'add_block_chart_to_dashboard'
+      end
+    end
+    resources :block_charts
   end
 
   get 'product/create_product' => 'products#create'

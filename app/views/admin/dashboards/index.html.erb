@@ -1,5 +1,18 @@
 <div class="container">
   <%= render 'admin/shared/admin_header' %>
   <%= render 'stats_evolution' %>
+  <section class="clearfix padding-top-40">
+    <header id="page-sub-header"">
+      <div class="pull-left alert-container">
+        <%= render 'shared/flash_alert' %>
+      </div>
+      <aside class="pull-right">
+        <%= link_to t('add_block_chart'), "#!", class: 'btn btn-lg btn-chart', data: {toggle: "modal", target: "#charts-available"} %>
+      </aside>
+    </header>
+  </section>
   <%= render 'dashboard_charts' %>
 </div>
+
+<%= render 'modal_add_chart' %>
+

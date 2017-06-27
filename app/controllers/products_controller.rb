@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!, only: :favorite
+  after_action :get_keyword_counter, only: :create
   def index
     @product_sellers = ProductSeller.all
     @categories = Category.all
@@ -133,5 +134,12 @@ class ProductsController < ApplicationController
       current_user.favorites.delete(product)
       redirect_to :back, notice: t('unfavorited', product: product.name.truncate(40))
     end
+  end
+
+  def get_keyword_counter
+    keyword = params[:search]
+    user_keyword = UserKeyword.find_or_initialize_by(name: keyword)
+    user_keyword.counter += 1
+    user_keyword.save
   end
 end

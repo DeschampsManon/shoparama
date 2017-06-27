@@ -1,12 +1,13 @@
 <div id="partners-quantity" class="chart-container"></div>
 <script type="text/javascript" charset="utf-8">
     Highcharts.chart('partners-quantity', {
-        colors: ['#26b99a', '#FF5676', '#bdc3c7', '#57C8F2', '#BF56E9'],
+        colors: <%= raw DASHBOARD_COLORS %>,
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
             plotShadow: false,
             backgroundColor: null,
+            marginTop: 60,
             type: 'pie'
         },
         title: {
@@ -26,7 +27,7 @@
                             return this.point.percentage.toFixed(1) + "%";
                         }
                     },
-                    distance: -40,
+                    distance: -35,
                     color:'white',
                     style: {
                         textShadow: false,
@@ -91,4 +92,3 @@
         }
     });
 </script>
-</div>

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_current_user, if: :current_user
+  after_action :ahoy_track
 
   def set_current_user
     User.current_user = current_user
@@ -31,6 +32,10 @@ class ApplicationController < ActionController::Base
 
     def after_sign_in_path_for(resource)
       users_my_profile_path
+    end
+
+    def ahoy_track
+      ahoy.track_visit
     end
 end
 

@@ -1,6 +1,6 @@
 <%= render 'admin/shared/admin_header' %>
 <section class="clearfix">
-  <%= form_for(@category, url: {action: @category.new_record? ? "create" : "update"}, html: { class: "main-form clearfix validate-simple", id: "user-form" }) do |f| %>
+  <%= form_for(@category, url: {action: @category.new_record? ? "create" : "update"}, html: { class: "main-form clearfix validate-simple" }) do |f| %>
     <h2><%= t 'edit_category' %></h2>
     <%= render 'shared/error_messages', target: @category %>
     <div class="row">

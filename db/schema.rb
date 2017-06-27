@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624131459) do
+ActiveRecord::Schema.define(version: 20170626130901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_block_charts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "x",          default: 0
+    t.integer  "y",          default: 0
+    t.integer  "width",      default: 4
+    t.integer  "height",     default: 3
+    t.boolean  "presence",   default: true
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "title"
+  end
 
   create_table "admin_dashboards", force: :cascade do |t|
     t.integer  "nb_users"
@@ -21,8 +33,21 @@ ActiveRecord::Schema.define(version: 20170624131459) do
     t.integer  "nb_login"
     t.integer  "nb_products_amazon"
     t.integer  "nb_products_ebay"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.integer  "nb_products_amazon_visited"
+    t.integer  "nb_products_ebay_visited"
+  end
+
+  create_table "ahoy_events", force: :cascade do |t|
+    t.integer  "visit_id"
+    t.integer  "user_id"
+    t.string   "name"
+    t.json     "properties"
+    t.datetime "time"
+    t.index ["name", "time"], name: "index_ahoy_events_on_name_and_time", using: :btree
+    t.index ["user_id", "name"], name: "index_ahoy_events_on_user_id_and_name", using: :btree
+    t.index ["visit_id", "name"], name: "index_ahoy_events_on_visit_id_and_name", using: :btree
   end
 
   create_table "brands", force: :cascade do |t|
@@ -113,6 +138,13 @@ ActiveRecord::Schema.define(version: 20170624131459) do
     t.index ["name"], name: "index_roles_on_name", using: :btree
   end
 
+  create_table "user_keywords", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "counter",    default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "user_logins", force: :cascade do |t|
     t.integer  "user_id"
     t.inet     "user_ip"
@@ -151,6 +183,37 @@ ActiveRecord::Schema.define(version: 20170624131459) do
     t.integer "user_id"
     t.integer "role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+  end
+
+  create_table "visits", force: :cascade do |t|
+    t.string   "visit_token"
+    t.string   "visitor_token"
+    t.string   "ip"
+    t.text     "user_agent"
+    t.text     "referrer"
+    t.text     "landing_page"
+    t.integer  "user_id"
+    t.string   "referring_domain"
+    t.string   "search_keyword"
+    t.string   "browser"
+    t.string   "os"
+    t.string   "device_type"
+    t.integer  "screen_height"
+    t.integer  "screen_width"
+    t.string   "country"
+    t.string   "region"
+    t.string   "city"
+    t.string   "postal_code"
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "utm_source"
+    t.string   "utm_medium"
+    t.string   "utm_term"
+    t.string   "utm_content"
+    t.string   "utm_campaign"
+    t.datetime "started_at"
+    t.index ["user_id"], name: "index_visits_on_user_id", using: :btree
+    t.index ["visit_token"], name: "index_visits_on_visit_token", unique: true, using: :btree
   end
 
   add_foreign_key "products", "brands"
