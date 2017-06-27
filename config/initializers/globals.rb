@@ -18,3 +18,9 @@ DASHBOARD_COLORS = [
     '#A5AEB2',
     '#C2C9C9'
 ]
+
+BROWSERS = [
+    'Chrome',
+    'Safari',
+    'Firefox'
+]

@@ -1,0 +1,47 @@
+<div id="most-popular-products" class="chart-container"></div>
+
+<script type="text/javascript" charset="utf-8">
+    Highcharts.chart('most-popular-products', {
+        colors: <%= raw DASHBOARD_COLORS %>,
+        chart: {
+            type: 'column',
+            marginTop: 80,
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            categories: <%= raw @most_popular_products_name.to_json %>
+        },
+        yAxis: {
+            min: 0,
+            allowDecimals: false,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            endOnTick: false,
+            maxPadding: 0.1,
+            title: {
+                text: ''
+            }
+        },
+        credits: {
+            enabled: false
+        },
+        legend: {
+          enabled: false
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        tooltip: {
+            pointFormat: ' <%= t('Popularity') %> : {point.y:,.0f}'
+        },
+        series: [{
+            data: <%= raw @most_popular_products_count.map{|k,v| {y: v} }.to_json %>
+
+        }]
+    });
+</script>

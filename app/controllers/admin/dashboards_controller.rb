@@ -15,7 +15,7 @@ class Admin::DashboardsController < ApplicationController
     @data_amazon_products_visited_each_day = {}
     @data_ebay_products_visited_each_day = {}
 
-    product_visited_start_date = Date.parse('june 23 2017')
+    product_visited_start_date = Date.parse('june 25 2017')
     Admin::Dashboard.where("created_at >= ?", product_visited_start_date).each do |dashboard|
       @data_amazon_products_visited_each_day[dashboard.created_at.strftime("%d-%b").to_s] = dashboard.nb_products_amazon_visited
       @data_ebay_products_visited_each_day[dashboard.created_at.strftime("%d-%b").to_s] = dashboard.nb_products_ebay_visited
@@ -25,7 +25,24 @@ class Admin::DashboardsController < ApplicationController
     UserKeyword.all.each do |user_keyword|
       @most_popular_kewords[user_keyword.name] = user_keyword.counter
     end
+
+    @data_devise_type_desktop_count = {}
+    @data_mac_os_x_count = {}
+
+    BROWSERS.each do |browser|
+      @data_devise_type_desktop_count[browser] = Visit.where(browser: browser, device_type: "Desktop").count
+      @data_mac_os_x_count[browser] = Visit.where(browser: browser, os: "Mac OS X").count
+    end
+
     @charts = Admin::BlockChart.all
+
+    @most_popular_products_count = FavoriteProduct.group(:product_seller_id).order('count_id DESC').limit(5).count(:id)
+
+    @most_popular_products_name = []
+    @most_popular_products_count.each do |key, value|
+      product = ProductSeller.find(key)
+      @most_popular_products_name << product.name
+    end
   end
 
   def change_block_chart

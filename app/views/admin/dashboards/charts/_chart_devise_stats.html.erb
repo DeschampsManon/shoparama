@@ -1,0 +1,43 @@
+<div id="devise-stats" class="chart-container"></div>
+
+<script type="text/javascript" charset="utf-8">
+    Highcharts.chart('devise-stats', {
+        colors: <%= raw DASHBOARD_COLORS %>,
+        chart: {
+            type: 'column',
+            marginTop: 80,
+        },
+        title: {
+            text: ''
+        },
+        xAxis: {
+            categories: <%= raw @data_devise_type_desktop_count.map{|k,v| "#{k.to_s}" }.to_json %>,
+
+        },
+        yAxis: {
+            min: 0,
+            gridLineWidth: 0,
+            minorGridLineWidth: 0,
+            allowDecimals: false,
+            title: {
+                text: ''
+            },
+        },
+        credits: {
+            enabled: false
+        },
+        exporting: {
+            enabled:false
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Mac OS X',
+            data: <%= raw @data_mac_os_x_count.map{|k,v| {y: v} }.to_json %>
+        }, {
+            name: 'Desktop',
+            data: <%= raw @data_devise_type_desktop_count.map{|k,v| {y: v} }.to_json %>
+        }]
+    });
+</script>
