@@ -6,6 +6,7 @@
         chart: {
             type: 'column',
             marginTop: 80,
+            height: "<%= page_format %>" == "pdf" ? 450 : null,
         },
         title: {
             text: ''
@@ -22,6 +23,12 @@
             title: {
                 text: ''
             },
+        },
+        plotOptions: {
+            series: {
+                enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
+                animation: "<%= page_format %>" == "pdf" ? false : true
+            }
         },
         credits: {
             enabled: false

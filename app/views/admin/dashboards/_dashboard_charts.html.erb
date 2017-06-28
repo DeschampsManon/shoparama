@@ -25,7 +25,7 @@
         </nav>
       </h3>
       <div class="grid-stack-item-content">
-        <%= render "admin/dashboards/charts/chart_#{chart.name}" %>
+        <%= render "admin/dashboards/charts/chart_#{chart.name}", page_format: "html" %>
       </div>
     </div>
   <% end %>

@@ -7,6 +7,7 @@
             backgroundColor: null,
             plotBackgroundColor: null,
             marginTop: 100,
+            height: "<%= page_format %>" == "pdf" ? 450 : null,
         },
         title: {
             text: ''
@@ -39,6 +40,10 @@
                         }
                     }
                 }
+            },
+            series: {
+                enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
+                animation: "<%= page_format %>" == "pdf" ? false : true
             }
         },
         exporting: {

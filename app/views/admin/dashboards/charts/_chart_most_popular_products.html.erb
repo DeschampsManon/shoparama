@@ -6,6 +6,7 @@
         chart: {
             type: 'column',
             marginTop: 80,
+            height: "<%= page_format %>" == "pdf" ? 450 : null,
         },
         title: {
             text: ''
@@ -24,6 +25,9 @@
                 text: ''
             }
         },
+        exporting: {
+          enabled:false
+        },
         credits: {
             enabled: false
         },
@@ -34,6 +38,10 @@
             column: {
                 pointPadding: 0.2,
                 borderWidth: 0
+            },
+            series: {
+                enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
+                animation: "<%= page_format %>" == "pdf" ? false : true
             }
         },
         tooltip: {

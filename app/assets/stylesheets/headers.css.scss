@@ -207,6 +207,11 @@
           content: "\f262";
         }
       }
+      &.btn-export {
+        &:after {
+          content: "\f408";
+        }
+      }
     }
   }
 }

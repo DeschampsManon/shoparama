@@ -11,6 +11,7 @@ Rails.application.routes.draw do
         post 'change_block_chart'
         post 'remove_chart_from_dashboard'
         post 'add_block_chart_to_dashboard'
+        post 'export_to_pdf'
       end
     end
     resources :block_charts

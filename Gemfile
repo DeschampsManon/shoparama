@@ -51,6 +51,8 @@ gem 'rolify'
 
 # IMPORT/EXPORTS : CSV | XLS | XLSX | PDF
 gem 'nokogiri'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
 
 # GLOBALISATION & I18n
 gem 'i18n-js', '3.0.0.rc2'
@@ -66,7 +68,7 @@ gem 'puma', '~> 3.0'
 #DATABASE
 gem 'pg', '~> 0.18'
 
-#TRAFFIC
+#TRACKING
 gem 'ahoy_matey'
 
 group :development, :test do

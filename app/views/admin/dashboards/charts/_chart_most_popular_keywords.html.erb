@@ -5,6 +5,7 @@
         chart: {
             type: 'bar',
             marginTop: 60,
+            height: "<%= page_format %>" == "pdf" ? 450 : null,
         },
         title: {
             text: ''
@@ -39,7 +40,14 @@
                 dataLabels: {
                     enabled: true
                 }
+            },
+            series: {
+                enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
+                animation: "<%= page_format %>" == "pdf" ? false : true
             }
+        },
+        exporting: {
+          enabled:false
         },
         legend: {
             enabled: false

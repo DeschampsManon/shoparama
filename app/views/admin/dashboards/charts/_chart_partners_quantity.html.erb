@@ -8,6 +8,7 @@
             plotShadow: false,
             backgroundColor: null,
             marginTop: 60,
+            height: "<%= page_format %>" == "pdf" ? 450 : null,
             type: 'pie'
         },
         title: {
@@ -35,6 +36,10 @@
                     }
                 },
                 showInLegend: true,
+            },
+            series: {
+                enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
+                animation: "<%= page_format %>" == "pdf" ? false : true
             }
         },
         legend: {

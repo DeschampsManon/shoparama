@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <script src="https://code.jquery.com/jquery-2.2.2.min.js" integrity="sha256-36cp2Co+/62rEAAYHLmRCPIych47CvdM+uTBJwSzWjI=" crossorigin="anonymous"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/funnel.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+  <%= wicked_pdf_javascript_include_tag "chart_templates/chart_bar_combined" %>
+  <%= wicked_pdf_stylesheet_link_tag "pdf" %>
+
+  <style>
+    h3 {
+      font-family: Montserrat;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #333;
+      font-size: 16px;
+      padding: 8px 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    .chart-container {
+      margin-bottom: 45px;
+    }
+  </style>
+</head>
+<body>
+  <% @charts.where(presence: true).each do |chart| %>
+    <h3><%= chart.title.to_s %> :</h3>
+    <%= render "admin/dashboards/charts/chart_#{chart.name}.html.erb", page_format: "pdf" %>
+  <% end %>
+</body>
+</html>
+

@@ -53,6 +53,7 @@ fr:
   contact: Contact
   actions: Actions
   prompt_default: -- selectionner --
+  export_to_pdf: Exporter en pdf
   favorited: "%{product} a été ajouté à vos favoris"
   unfavorited: "%{product} ne fait plus partis de vos favoris"
   no_product_found: Aucun produit trouvé
