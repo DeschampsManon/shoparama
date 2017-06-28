@@ -12,8 +12,7 @@
             text: ''
         },
         xAxis: {
-            categories: <%= raw @data_devise_type_desktop_count.map{|k,v| "#{k.to_s}" }.to_json %>,
-
+            categories: <%= raw @data_mac_os_x_count.map{|k,v| "#{k.to_s}" }.to_json %>,
         },
         yAxis: {
             min: 0,
@@ -23,11 +22,39 @@
             title: {
                 text: ''
             },
+            stackLabels: {
+                enabled: true,
+                style: {
+                    fontWeight: 'bold',
+                    color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                }
+            }
+        },
+        legend: {
+
+        },
+        tooltip: {
+            headerFormat: '<b>{point.x}</b><br/>',
+            pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
         },
         plotOptions: {
+            column: {
+                stacking: 'normal',
+                dataLabels: {
+                    enabled: true,
+                    color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+                }
+            },
             series: {
                 enableMouseTracking: "<%= page_format %>" == "pdf" ? false : true,
-                animation: "<%= page_format %>" == "pdf" ? false : true
+                animation: "<%= page_format %>" == "pdf" ? false : true,
+                dataLabels: {
+                    formatter:function() {
+                        if(this.y != 0) {
+                            return this.y;
+                        }
+                    }
+                },
             }
         },
         credits: {
@@ -36,15 +63,15 @@
         exporting: {
             enabled:false
         },
-        credits: {
-            enabled: false
-        },
         series: [{
             name: 'Mac OS X',
             data: <%= raw @data_mac_os_x_count.map{|k,v| {y: v} }.to_json %>
         }, {
-            name: 'Desktop',
-            data: <%= raw @data_devise_type_desktop_count.map{|k,v| {y: v} }.to_json %>
+            name: 'Windows',
+            data: <%= raw @data_windows_count.map{|k,v| {y: v} }.to_json %>
+        }, {
+            name: 'Linux',
+            data: <%= raw @data_linux_count.map{|k,v| {y: v} }.to_json %>
         }]
     });
 </script>

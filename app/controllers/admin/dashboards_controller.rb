@@ -69,12 +69,14 @@ class Admin::DashboardsController < ApplicationController
         @most_popular_kewords[user_keyword.name] = user_keyword.counter
       end
 
-      @data_devise_type_desktop_count = {}
+      @data_windows_count = {}
       @data_mac_os_x_count = {}
+      @data_linux_count = {}
 
       BROWSERS.each do |browser|
-        @data_devise_type_desktop_count[browser] = Visit.where(browser: browser, device_type: "Desktop").count
+        @data_windows_count[browser] = Visit.where(browser: browser, os: "Windows").count
         @data_mac_os_x_count[browser] = Visit.where(browser: browser, os: "Mac OS X").count
+        @data_linux_count[browser] = Visit.where(browser: browser, os: "Linux").count
       end
 
       @most_popular_products_count = FavoriteProduct.group(:product_seller_id).order('count_id DESC').limit(5).count(:id)
