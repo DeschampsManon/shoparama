@@ -9,7 +9,7 @@ class DashboardJob < ActiveJob::Base
     nb_products_amazon = ProductSeller.where(website: "amazon").where("created_at <= ?", start_date).count
     nb_products_ebay = ProductSeller.where(website: "ebay").where("created_at <= ?", start_date).count
 
-    products_visited = Ahoy::Event.where(name: "$click").where("properties->>'class' like ?", "%product-visited%").where("time <= ?", start_date)
+    products_visited = Ahoy::Event.where(name: "$click").where("properties->>'class' like ?", "%product-visited%").where(time: start_date)
     nb_products_amazon_visited = 0
     nb_products_ebay_visited = 0
 
@@ -31,5 +31,5 @@ class DashboardJob < ActiveJob::Base
         nb_products_ebay: nb_products_ebay,
         nb_products_amazon_visited: nb_products_amazon_visited,
         nb_products_ebay_visited: nb_products_ebay_visited)
-  end
+    end
 end

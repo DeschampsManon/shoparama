@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
-  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :set_current_user, if: :current_user
   after_action :ahoy_track
 
@@ -23,15 +22,6 @@ class ApplicationController < ActionController::Base
       if !current_user.has_role? :admin
         redirect_to(root_url)
       end
-    end
-
-    def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation])
-      devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, :last_name, :email, :password, :current_password, :password_confirmation, :avatar, :cover_banner])
-    end
-
-    def after_sign_in_path_for(resource)
-      users_my_profile_path
     end
 
     def ahoy_track

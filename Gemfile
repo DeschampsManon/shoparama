@@ -38,7 +38,7 @@ gem 'ionicons-rails'
 # IMAGES
 gem 'paperclip'
 
-# AMAZON
+# API PARTNERS
 gem 'vacuum'
 gem 'rebay'
 
@@ -46,8 +46,6 @@ gem 'rebay'
 gem 'cancancan'
 gem 'devise'
 gem 'rolify'
-
-#SCRAPING
 
 # IMPORT/EXPORTS : CSV | XLS | XLSX | PDF
 gem 'nokogiri'

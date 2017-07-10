@@ -1,4 +1,4 @@
-function datatable_params(){
+tfunction datatable_params(){
     $.extend( true, $.fn.dataTable.defaults, {
         responsive: true,
         "language" : {
